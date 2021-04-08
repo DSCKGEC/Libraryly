@@ -1,0 +1,49 @@
+{
+    "name": "libraryly",
+    "version": "0.0.0",
+    "description": "online library management solution",
+    "main": "app.js",
+    "directories": {
+        "test": "tests"
+    },
+    "scripts": {
+        "test": "mocha $npm_package_directories_test/*.js --exit",
+        "start": "node app.js",
+        "dev": "nodemon app.js"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/DSCKGEC/Libraryly.git"
+    },
+    "keywords": [
+        "nodejs",
+        "express",
+        "mongodb",
+        "mongoose",
+        "ejs",
+        "library",
+        "books",
+        "ksoc"
+    ],
+    "author": "dsckgec",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/DSCKGEC/Libraryly/issues"
+    },
+    "homepage": "https://github.com/DSCKGEC/Libraryly#readme",
+    "dependencies": {
+        "bcrypt": "^5.0.1",
+        "cors": "^2.8.5",
+        "dotenv": "^8.2.0",
+        "ejs": "^3.1.6",
+        "express": "^4.17.1",
+        "jsonwebtoken": "^8.5.1",
+        "mongoose": "^5.12.3"
+    },
+    "devDependencies": {
+        "chai": "^4.3.4",
+        "chai-http": "^4.3.0",
+        "mocha": "^8.3.2",
+        "nodemon": "^2.0.7"
+    }
+}
