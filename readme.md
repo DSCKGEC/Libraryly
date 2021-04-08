@@ -21,7 +21,7 @@ An online library management solution
 
 A software solution to handle the primary functions of a library, which include managing books as well as members. This solution involves maintaining a database for entering new books, recording the issue of books as well as user profiles.
 
-### Why we need Libraryly?
+### What's the problem we are trying to solve?
 
 Libraries play a crucial role in the society, being the gateway of knowledge and culture. With the development of digital content, it becomes increasingly important to manage and maintain the catalogue of books with a scalable and reliable **Library Management System** that supports the general requirements of a library. Managing a library through paperwork can be very time-consuming and it has its own risks like files and records getting lost or damaged.
 
