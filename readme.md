@@ -49,16 +49,16 @@ Each book will have a unique identification number and parameters like title, au
 The current project structure is as follows:
 
 ```
-libraryly
+/
   ├── .github/            github related files like PR templates, contribution guidelines
   ├── controllers/        controller functions for every route. controllers make calls to services
+  ├── middlewares/        middlewares for various routes go here
   ├── models/             database schema / models go here
   ├── routes/             routes or endpoint definitions go here, routes make calls to controllers
   ├── services/           files that process and query the database go here
   ├── tests/              directory for endpoint testing
   ├── views/              the frontend of the project in EJS, CSS and js
-  ├── utils/              utility or helper functions go here
-  ├── middlewares         middlewares for various routes go here        
+  ├── utils/              utility or helper functions go here        
   ├── .env                environment variables used in the project
   ├── .gitignore          stores files and directories to be ignored in commits
   ├── .prettierrc         configuration for prettier to help maintain a common code formatting
@@ -66,7 +66,7 @@ libraryly
   ├── LICENSE             the open source license
   ├── package.json        metadata of the project
   ├── package-lock.json   stores version of every package used in the project
-  ├── readme.md           details and instructions about the project go here
+  └── readme.md           details and instructions about the project go here
 
 ```
 
@@ -154,7 +154,7 @@ Please read [contributing.md](/.github/contributing.md) for details on our contr
 ## Authors
 
 <a href="https://github.com/DSCKGEC/libraryly/graphs/contributors">
-  <img src="https://contributors-img.web.app/image?repo=DSCKGEC/libraryly" />
+  <img src="https://contrib.rocks/image?repo=dsckgec/libraryly" />
 </a>
 
 ## License
@@ -163,4 +163,4 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## Acknowledgments
 
--
+- [contributors-img](https://contrib.rocks)
