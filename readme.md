@@ -21,11 +21,11 @@ An online library management solution
 
 A software solution to handle the primary functions of a library, which include managing books as well as members. This solution involves maintaining a database for entering new books, recording the issue of books as well as user profiles.
 
-### What's the problem?
+### Why we need Libraryly?
 
-Libraries play a crucial role in the society, being the gateway of knowledge and culture. With the development of digital content, it becomes increasingly important to manage and maintain the catalogue of books with a scalable and reliable **Library Management System** that supports the general requirements of a library. Managing a library through paper work can be very time consuming and it has its own risks like files and records getting lost or damaged.
+Libraries play a crucial role in the society, being the gateway of knowledge and culture. With the development of digital content, it becomes increasingly important to manage and maintain the catalogue of books with a scalable and reliable **Library Management System** that supports the general requirements of a library. Managing a library through paperwork can be very time-consuming and it has its own risks like files and records getting lost or damaged.
 
-### How can this project help?
+### How can Libraryly help?
 
 Our project presents an e-platform to libraries of all sizes, which help maintain the data of books, being added or issued, along with due dates, issuers, fine calculation and other primary functions of a library.
 
@@ -36,7 +36,7 @@ We have three kinds of users in our system
 
 -   Librarian: Responsible for adding and maintaining the catalogue of books and issues as well as members of the library.
 -   Member: Members can browse the catalogue of books, request for issuing or adding more books.
--   Admin: The admin has control over the entire system and has CRUD permissions for librarians, members as well has books.
+-   Admin: The admin has control over the entire system and has CRUD permissions for librarians, members and books.
 
 Registration: <br />
 Librarians and regular members can register an account on the platform but can only start using after profile approval by the admins (for librarians) and admin / librarian (for users).
@@ -53,11 +53,12 @@ libraryly
   ├── .github/            github related files like PR templates, contribution guidelines
   ├── controllers/        controller functions for every route. controllers make calls to services
   ├── models/             database schema / models go here
-  ├── routes/             routes or endpoint definitions go here. routes make calls to controllers
+  ├── routes/             routes or endpoint definitions go here, routes make calls to controllers
   ├── services/           files that process and query the database go here
   ├── tests/              directory for endpoint testing
-  ├── views/              the frontend of the project in ejs, css and js
+  ├── views/              the frontend of the project in EJS, CSS and js
   ├── utils/              utility or helper functions go here
+  ├── middlewares         middlewares for various routes go here        
   ├── .env                environment variables used in the project
   ├── .gitignore          stores files and directories to be ignored in commits
   ├── .prettierrc         configuration for prettier to help maintain a common code formatting
@@ -87,7 +88,7 @@ See below for our proposed future steps.
 
 ## Getting started
 
-Everyone is welcomed to contribute to our project. Mentioning in bold, **you do not need to know the tech stack and tools beforehand to be a part of our project**. This is a learn-and-build projects where the contributors build alonside learning the various concepts and technologies involved. Below are a few prerequisites and installation guides
+Everyone is welcomed to contribute to our project. Mentioning in bold, **you do not need to know the tech stack and tools beforehand to be a part of our project**. This is a learn-and-build projects where the contributors build alongside learning the various concepts and technologies involved. <br />Below are a few prerequisites and installation guides:
 
 ### Prerequisites
 
@@ -104,7 +105,7 @@ The best way to learn the following is to google each and everything!
 
     -   What are repositories (local - remote - upstream), issues, pull requests
     -   How to clone a repository, how to fork a repository, how to set upstreams
-    -   Addiing, commiting, pulling, pushing changes to remote repositories
+    -   Adding, committing, pulling, pushing changes to remote repositories
 
 -   For backend:
 
@@ -114,13 +115,13 @@ The best way to learn the following is to google each and everything!
     -   Creating a free MongoDB cluster and fetching the connection URI. (you may read my gist on how to - [here](https://gist.github.com/singhayushh/426f10353a8051593828e92c139ebdbc))
 
 -   For frontend:
-    -   Understanding the differences between HTML and EJS
-    -   Using variables, if else, loops in ejs
+    -   Understanding the differences between HTML and EJS.
+    -   Using variables, if else, loops in EJS.
     -   CSS !
 
 ### Installing
 
-A step by step series of instructions that tell you how to get the project running locally is given below. Google every issue you face following the below instructions or just ask us in our discord / whatsapp group.
+A step by step series of instructions that tell you how to get the project running locally is given below. Google every issue you face following the below instructions or just ask us in our Discord / WhatsApp group.
 
 -   Fork and clone the repository followed by opening the project in your text editor (with a terminal)
 -   create a `.env` file, copy the contents from `.env.example` file to `.env`. Replace the values of `PORT`, `MONGO_URI` and `JWT_SECRET` with your own values.
@@ -137,8 +138,8 @@ A step by step series of instructions that tell you how to get the project runni
 
 **Backend:**
 
--   [Express](https://expressjs.com/) - a nodejs framework
--   [Mongo DB](https://www.mongodb.com/) and the [Mongoose](https://mongoosejs.com/) ODM
+-   [Express](https://expressjs.com/) - a NodeJS framework
+-   [Mongo DB](https://www.mongodb.com/) and the [Mongoose](https://mongoosejs.com/) DOM
 
 **Frontend:**
 
