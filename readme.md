@@ -1,9 +1,9 @@
-# Submission or project name
+# Libraryly
 
-[![Contributors](https://img.shields.io/github/contributors/dsckgec/library-management.svg)](https://github.com/dsckgec/library-management/graphs/contributors) [![Forks](https://img.shields.io/github/forks/dsckgec/library-management.svg)](https://github.com/dsckgec/library-management/network/members) [![Issues](https://img.shields.io/github/issues/dsckgec/library-management.svg)](https://github.com/dsckgec/library-management/issues) [![Pull Request](https://img.shields.io/github/issues-pr-closed-raw/dsckgec/library-management)](https://github.com/dsckgec/library-management/pulls)
+[![Contributors](https://img.shields.io/github/contributors/dsckgec/libraryly.svg)](https://github.com/dsckgec/libraryly/graphs/contributors) [![Forks](https://img.shields.io/github/forks/dsckgec/libraryly.svg)](https://github.com/dsckgec/libraryly/network/members) [![Issues](https://img.shields.io/github/issues/dsckgec/libraryly.svg)](https://github.com/dsckgec/libraryly/issues) [![Pull Request](https://img.shields.io/github/issues-pr-closed-raw/dsckgec/libraryly)](https://github.com/dsckgec/libraryly/pulls)
 
 
-A basic GitHub repository template for initializing open source projects on a single click.
+An online library management solution
 
 ## Contents
 
@@ -32,23 +32,23 @@ Our project presents an e-platform to libraries of all sizes, which help maintai
 
 ### The idea
 
-**User Model**
+Users: <br />
 We have three kinds of users in our system
 - Librarian: Responsible for adding and maintaining the catalogue of books and issues as well as members of the library.
 - Member: Members can browse the catalogue of books, request for issuing or adding more books.
 - Admin: The admin has control over the entire system and has CRUD permissions for librarians, members as well has books.
 
-**Registration**
+Registration: <br />
 Librarians and regular members can register an account on the platform but can only start using after profile approval by the admins (for librarians) and admin / librarian (for users). 
 
-**Books**
+Books: <br />
 Each book will have a unique identification number and parameters like title, author, subject, **category**, publication date etc, on basis of which the book can be searched in the catalogue. Members can request the authority to add a book to the catalogue by filling up a form. The system should be able to maintain the the issuing, return and renew of books.
 
 ## Project structure
 
 The current project structure is as follows:
 ```
-library-management
+libraryly
   ├── .github/            github related files like PR templates, contribution guidelines  
   ├── controllers/        controller functions for every route. controllers make calls to services
   ├── models/             database schema / models go here
@@ -149,8 +149,8 @@ Please read [contributing.md](/.github/contributing.md) for details on our contr
 
 ## Authors
 
-<a href="https://github.com/DSCKGEC/library-management/graphs/contributors">
-  <img src="https://contributors-img.web.app/image?repo=DSCKGEC/library-management" />
+<a href="https://github.com/DSCKGEC/libraryly/graphs/contributors">
+  <img src="https://contributors-img.web.app/image?repo=DSCKGEC/libraryly" />
 </a>
 
 ## License
