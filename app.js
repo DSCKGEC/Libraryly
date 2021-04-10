@@ -3,8 +3,7 @@
 const express = require('express');
 const cors = require('cors');
 const mongoose = require('mongoose');
-
-
+const cookieParser = require('cookie-parser');
 
 /* ------------ Configs ----------- */
 
@@ -23,8 +22,6 @@ const connectOptions = {
     useFindAndModify: false, // allow findOneAndUpdate()
 };
 
-
-
 /* ------------ MongoDB Setup ----------- */
 
 // initiate connection to mongodb
@@ -38,8 +35,6 @@ mongoose.connection.once('open', () =>
     console.log('Connected to MongoDB successfully...')
 );
 
-
-
 /* ------------ Express Setup ----------- */
 
 // initialize the express application
@@ -49,10 +44,15 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+app.use(cookieParser());
 
 // use ejs template engine and allow serving static files
 app.use(express.static(__dirname + '/views'));
 app.set('view engine', 'ejs');
+
+// include routes from /routes
+const userRouter = require('./routes/user.route');
+app.use('/', userRouter);
 
 // start the libraryly server
 app.listen(port, () =>
