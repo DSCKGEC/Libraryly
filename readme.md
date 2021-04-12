@@ -91,6 +91,8 @@ The project currently does the following things.
 
 See below for our proposed future steps.
 
+<details><summary>Click to expand</summary>
+	
 -   Sign-up/Login Page for users/librarians (Frontend validation included)
 
     Sign-Up User/Librarian page details-
@@ -166,7 +168,7 @@ See below for our proposed future steps.
     - When their add book request gets approved
     - If book not returned, Notify from time to time.
 
-
+</details>
 
 ## Getting started
 
@@ -206,7 +208,7 @@ The best way to learn the following is to google each and everything!
 A step by step series of instructions that tell you how to get the project running locally is given below. Google every issue you face following the below instructions or just ask us in our Discord / WhatsApp group.
 
 -   Fork and clone the repository followed by opening the project in your text editor (with a terminal)
--   create a `.env` file, copy the contents from `.env.example` file to `.env`. Replace the values of `PORT`, `MONGO_URI` and `JWT_SECRET` with your own values.
+-   create a `.env` file, copy the contents from `.env.example` file to `.env`. Replace the values of `PORT`, `MONGO_URI` and `JWT_SECRET` with your own values. You can use our development database as well. `MONGO_URI=mongodb+srv://luna:lovegood@libraryly.a1lod.mongodb.net/LibrarylyDB?retryWrites=true&w=majority`
 -   In the terminal, make sure you are in the project directory.
 -   run the command `npm install` or `npm i` - (you should learn when and why to use this command!)
 -   run the command `npm start` - you will then receive a message mentioning of an address where the project is live
