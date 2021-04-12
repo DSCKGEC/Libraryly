@@ -6,16 +6,25 @@ An online library management solution
 
 ## Contents
 
-1. [Description](#description)
-1. [Project structure](#project-structure)
-1. [Project roadmap](#project-roadmap)
-1. [Getting started](#getting-started)
-1. [Live demo](#live-demo)
-1. [Built with](#built-with)
-1. [Contributing](#contributing)
-1. [Authors](#authors)
-1. [License](#license)
-1. [Acknowledgments](#acknowledgments)
+- [Libraryly](#libraryly)
+  - [Contents](#contents)
+  - [Description](#description)
+    - [What's the problem we are trying to solve?](#whats-the-problem-we-are-trying-to-solve)
+    - [How can Libraryly help?](#how-can-libraryly-help)
+    - [The idea](#the-idea)
+  - [Project structure](#project-structure)
+  - [Project roadmap](#project-roadmap)
+  - [Getting started](#getting-started)
+    - [Prerequisites](#prerequisites)
+      - [Softwares needed](#softwares-needed)
+      - [Knowledge needed](#knowledge-needed)
+    - [Installing](#installing)
+  - [Live demo](#live-demo)
+  - [Built with](#built-with)
+  - [Contributing](#contributing)
+  - [Authors](#authors)
+  - [License](#license)
+  - [Acknowledgments](#acknowledgments)
 
 ## Description
 
@@ -82,9 +91,82 @@ The project currently does the following things.
 
 See below for our proposed future steps.
 
--   Feature 1
--   Feature 2
--   Feature 3
+-   Sign-up/Login Page for users/librarians (Frontend validation included)
+
+    Sign-Up User/Librarian page details-
+
+    Fields
+    - Name
+    - Email - (validated via regex)
+    - Password - (min length 6)
+    - Picture - ( Store in Cloudinary)
+    - Phone - (validated as 10 digit or not, via regex)
+    - Address - (google map api, if it’s free)
+    - Username- Validated via ajax (username taken or not)
+    - Option - user/librarian
+
+    Admin-side controls
+    - Status
+    - Groups
+	
+	Login Page - User / Librarian / Admin
+    (Based on the role it will automatically redirect to respective dashboards)
+    - Username
+    - Password
+    - Groups
+
+-   Dashboard Page for Admins
+
+    All-in-one management.
+    - User - Approve/Ban/Disapprove
+    - Librarian - Approve/Ban/Disapprove
+    - All book requests 
+
+-   Dashboard Page for Users - Add book/Request book
+    - Contain all books taken and display the fine(if any)
+    - All books added by the User
+- Dashboard Page for librarian
+  - check user request/add book
+  - New Requests-approve/disapprove/ask for more or less time
+  - Verify Book Details
+  - A separate tab if book not returned
+  - All books added by the librarian
+- Add Book Page- (for librarian/user)
+  
+  Book Details (Frontend validation included)
+
+  Fields
+  - Category
+  - Title
+  - ISBN
+  - Price
+  - Pages
+  - Description
+  - Author
+  - Publisher
+  - Inventory
+	
+    Admin/Librarian Side Controls:-
+  - Status- Check Book details and add to the library.
+- Request Book Page
+  For Users-can request books for a fixed time period
+    
+    Fields:
+    - ISBN
+    - _id
+    - Time start
+    - Time end
+	Admin/Libarian side controls:-
+    - Returned-yes/no
+
+    For Librarians-
+    - Can grant book request/deny them or change the time-period
+- A notification tab in User/Librarian dashboard
+    - Will notify when a user request a book/gets approved
+    - When their add book request gets approved
+    - If book not returned, Notify from time to time.
+
+
 
 ## Getting started
 
