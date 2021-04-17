@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Register</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap" rel="stylesheet">
+        <script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" />
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+        <script src="https://requirejs.org/docs/release/2.3.6/minified/require.js"></script>
+        <link rel="stylesheet" href="/css/register.css">
+    </head>
+    <body>
+        <% if (locals.err) { %>
+            <script>
+                Swal.fire({
+                title: 'Error!',
+                text: '<%=err%>',
+                icon: 'error',
+                confirmButtonText: 'Okay'
+            })
+            </script>
+        <% } %>
+<div class="container">
+    <div class="info">
+      <h1>Register</h1>
+    </div>
+  </div>
+  <div class="form">
+    <div class="thumbnail"><img src="/img/logo_big.png"/></div>
+    <form class="login-form" action="/users/register" method="post">
+        <a href="#" class="tooltip-right nothing" id="name-wrong" data-tooltip="Please enter a valid name"><i class="fas fa-exclamation-circle"></i></a>
+        <a href="#" class="tooltip-right nothing" id="name-correct" data-tooltip="Looks Good"><i class="fas fa-check-circle"></i></a>
+      <input type="text" placeholder="Name" id="name" name="name" onkeyup="checkname()" required/>
+      
+      <a href="#" class="tooltip-right nothing" id="username-wrong" data-tooltip="Please Enter a valid username"><i class="fas fa-exclamation-circle"></i></a>
+      <a href="#" class="tooltip-right nothing" id="username-correct" data-tooltip="Looks Good"><i class="fas fa-check-circle"></i></a>
+      <input type="text" placeholder="Username" name="username" id="username" onkeyup="checkusername()" required/>
+
+      <a href="#" class="tooltip-right nothing" id="password-wrong" data-tooltip="Password should be between 8-15 characters and contain at least one lowercase letter, one uppercase letter, one numeric digit, and one special character"><i class="fas fa-exclamation-circle"></i></a>
+      <a href="#" class="tooltip-right nothing" id="password-correct" data-tooltip="Looks Good"><i class="fas fa-check-circle"></i></a>
+      <input type="password" placeholder="Password" id="password" name="password" onkeyup="checkpass()" required/>
+      
+      <a href="#" class="tooltip-right nothing" id="confirmpass-wrong" data-tooltip="Passwords dont match"><i class="fas fa-exclamation-circle"></i></a>
+      <a href="#" class="tooltip-right nothing" id="confirmpass-correct" data-tooltip="Looks Good"><i class="fas fa-check-circle"></i></a>
+      <input type="password" placeholder="Confirm Password" id="confirmpass" onkeyup="confirmpassword()" required/>
+      
+      <a href="#" class="tooltip-right nothing" id="email-wrong" data-tooltip="Invalid email address"><i class="fas fa-exclamation-circle"></i></a>
+      <a href="#" class="tooltip-right nothing" id="email-correct" data-tooltip="Looks Good"><i class="fas fa-check-circle"></i></a>
+      <input type="text" placeholder="Email address" id="email" name="email" onkeyup="checkemail()" required/>
+      
+      <a href="#" class="tooltip-right nothing" id="phone-wrong" data-tooltip="Enter a valid phone number. Should be 10 digits"><i class="fas fa-exclamation-circle"></i></a>
+      <a href="#" class="tooltip-right nothing" id="phone-correct" data-tooltip="Looks Good"><i class="fas fa-check-circle"></i></a>
+      <input type="number" placeholder="Phone" id="phone" name="phone" onkeyup="checkphone()" required/>
+      
+      <a href="#" class="tooltip-right nothing" id="address-wrong" data-tooltip="I’m the tooltip text."><i class="fas fa-exclamation-circle"></i></a>
+      <a href="#" class="tooltip-right nothing" id="address-correct" data-tooltip="Looks Good"><i class="fas fa-check-circle"></i></a>
+      <input type="text" placeholder="Address" id="address"/>
+      
+      
+      <a href="#" class="tooltip-right nothing" id="image-wrong" data-tooltip="I’m the tooltip text."><i class="fas fa-exclamation-circle"></i></a>
+      <a href="#" class="tooltip-right nothing" id="image-correct" data-tooltip="Looks Good"><i class="fas fa-check-circle"></i></a>
+      <input type="text" placeholder="Image Url" id="image" name="picture_url"/>
+      
+      <a href="#" class="tooltip-right nothing" id="group-wrong" data-tooltip="Please choose a valid group"><i class="fas fa-exclamation-circle"></i></a>
+      <a href="#" class="tooltip-right nothing" id="group-correct" data-tooltip="Looks Good"><i class="fas fa-check-circle"></i></a>
+      <select id="group" name="group" oninput="checkgroup()" required>
+        <option value=""> Choose Group</option>
+        <option value="member">Member</option>
+        <option value="librarian">Librarian</option>
+      </select>
+      
+
+      <button type="submit">Register</button>
+      <p class="message">Already registered? <a href="/users/login">Login</a><br>
+      <a href="/">Back to Homepage</a>
+      </p>
+    </form>
+  </div>
+    </body>
+    <script src="/js/register.js"></script>
+</html>

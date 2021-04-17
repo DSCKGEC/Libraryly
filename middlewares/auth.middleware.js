@@ -18,7 +18,8 @@ const UserAuthenticationMiddleware = (group) => {
             let decoded = jwt.verify(token, process.env.JWT_SECRET);
 
             // Failed verification
-            if (!decoded) return res.status(401).json('Expired or Invalid token');
+            if (!decoded)
+                return res.status(401).json('Expired or Invalid token');
 
             // Fetch user from DB
             let user = await User.findOne({ email: decoded.email });

@@ -1,38 +1,31 @@
-#heading {
+#content {
     font-family: 'Quicksand', sans-serif;
     position: absolute;
-    font-size: 60px;
     top: 30%;
     left: 50%;
     transform: translate(-50%, -50%);
 }
-#body-1 {
+#content-2 {
     font-family: 'Quicksand', sans-serif;
     position: absolute;
-    font-size: 50px;
-    top: 45%;
+    top: 70%;
     left: 50%;
+    text-align: center;
     transform: translate(-50%, -50%);
 }
-a {
+.link {
     text-decoration: none;
-}
-.logo {
-    width: 10%;
-    height: 15%;
-    top: 10%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    position: absolute;
+    text-decoration-color: black;
 }
 @media screen and (max-width: 420px) {
-    #heading {
-        font-size: 15px;
+    h1 {
+        font-size: 20px;
     }
-    #body-1 {
-        font-size: 15px;
+    #content-2 {
+        top: 50%;
     }
-    .logo {
-        width: 30%;
-    }
+}
+.error-img {
+    width: 100%;
+    height: 100%;
 }
