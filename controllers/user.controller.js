@@ -24,11 +24,11 @@ const Register = async (req, res) => {
         // receives the created user document as object
         const result = await userService.Register(req.body);
 
-        // TODO: redirect to login
-        res.status(200).json(result);
+        // redirect to login
+        res.render('login',{result})
     } catch (err) {
-        // TODO: redirect to render with error in partials
-        res.status(400).json(err);
+        // redirect to render with error in partials
+        res.render('register',{err});
     }
 };
 
@@ -44,8 +44,8 @@ const Login = async (req, res) => {
         // TODO: redirect to dashboard
         res.status(200).json(result);
     } catch (err) {
-        // TODO: redirect to login with error in partials
-        res.status(400).json(err);
+        // redirect to login with error in partials
+        res.render('login',{err})
     }
 };
 

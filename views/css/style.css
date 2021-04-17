@@ -1,0 +1,47 @@
+#heading
+{
+    font-family: 'Quicksand', sans-serif;
+    position:absolute;
+    font-size:60px ;
+    top:30%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+#body-1
+{
+    font-family: 'Quicksand', sans-serif;
+    position:absolute;
+    font-size:50px ;
+    top:45%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+a
+{
+    text-decoration:none;
+}
+.logo
+{
+    width: 10%;
+    height: 15%;
+    top:10%;
+    left:50%;
+    transform: translate(-50%,-50%);
+    position: absolute;
+
+}
+@media screen and (max-width:420px)
+{
+    #heading
+    {
+        font-size: 15px;
+    }
+    #body-1
+    {
+        font-size: 15px;
+    }
+    .logo
+    {
+        width:30%;
+    }
+}

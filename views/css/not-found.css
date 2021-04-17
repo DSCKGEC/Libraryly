@@ -1,0 +1,38 @@
+#content
+{
+    font-family: 'Quicksand', sans-serif;
+    position:absolute;
+    top:30%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+#content-2
+{
+    font-family: 'Quicksand', sans-serif;
+    position:absolute;
+    top:70%;
+    left: 50%;
+    text-align: center;
+    transform: translate(-50%,-50%);
+}
+.link
+{
+    text-decoration: none;
+    text-decoration-color: black;
+}
+@media screen and (max-width:420px)
+{
+    h1
+    {
+        font-size: 20px;
+    }
+    #content-2
+    {
+        top:50%;
+    }
+}
+.error-img
+{
+    width: 100%;
+    height: 100%;
+}

@@ -48,12 +48,24 @@ app.use(cookieParser());
 
 // use ejs template engine and allow serving static files
 app.use(express.static(__dirname + '/views'));
+app.use(express.static(__dirname + '/models'));
 app.set('view engine', 'ejs');
 
-// include routes from /routes
-const userRouter = require('./routes/user.route');
-app.use('/', userRouter);
+//include routes from /
+app.get('/',(req,res)=>
+{
+    res.render('index');
+}) 
 
+// include routes from /users
+const userRouter = require('./routes/user.route');
+app.use('/users', userRouter);
+
+// handle all routes without endpoints
+app.get('*',(req,res)=>
+{
+    res.render('not-found');
+})
 // start the libraryly server
 app.listen(port, () =>
     console.log(`LIBRARYLY running at http://localhost:${port}`)
