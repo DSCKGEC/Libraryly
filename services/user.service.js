@@ -50,7 +50,18 @@ const Login = async (email, password) => {
     };
 };
 
+const apiEmail = async (email) => {
+    const user = await User.findOne({ email: email });
+    return user;
+};
+
+const apiUsername = async (uname) => {
+    const user = await User.findOne({ username: uname });
+    return user;
+};
 module.exports = {
     Register,
     Login,
+    apiEmail,
+    apiUsername,
 };

@@ -1,49 +1,26 @@
 const express = require('express');
 const Router = express.Router();
-const User = require('../models/user.model');
 const userController = require('../controllers/user.controller');
 const userAuth = require('../middlewares/auth.middleware');
 
-
 /* ------------ Endpoint Definitions ----------- */
-Router.get('/register',(req,res)=>
-{
-    res.render('register');
-})
+Router.get('/register', userController.renderRegister);
+
+Router.get('/register/:error', userController.renderRegisterError);
+
+Router.get('/registersuccess', userController.renderRegisterSuccess);
 
 Router.post('/register', userController.Register);
 
-Router.get('/login',(req,res)=>
-{
-    res.render('login');
-})
-Router.get('/api/email/:id',async(req,res)=>
-{
-    var email=req.params.id
-    const user = await User.findOne({email:email});
-    if(!user)
-    {
-        res.send("0");
-    }
-    else
-    {
-        res.send("1");
-    }
-})
-Router.get('/api/username/:id',async(req,res)=>
-{
-    var uname=req.params.id
-    const user = await User.findOne({username:uname});
-    if(!user)
-    {
-        res.send("0");
-    }
-    else
-    {
-        res.send("1");
-    }
-})
+Router.get('/login', userController.renderLogin);
+
+Router.get('/login/:error', userController.renderLoginError);
+
 Router.post('/login', userController.Login);
+
+Router.get('/api/email/:id', userController.apiEmail);
+
+Router.get('/api/username/:id', userController.apiUsername);
 
 // Test route - to be deleted
 Router.post('/test', userAuth('member'), (req, res) =>
