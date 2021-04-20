@@ -4,6 +4,7 @@ const express = require('express');
 const cors = require('cors');
 const mongoose = require('mongoose');
 const cookieParser = require('cookie-parser');
+const favicon = require('serve-favicon');
 
 /* ------------ Configs ----------- */
 
@@ -49,6 +50,9 @@ app.use(cookieParser());
 // use ejs template engine and allow serving static files
 app.use(express.static(__dirname + '/views'));
 app.set('view engine', 'ejs');
+
+// use favicon
+app.use(favicon(__dirname + '/views/img/favicon.ico'));
 
 //include routes from /
 app.get('/', (req, res) => {
