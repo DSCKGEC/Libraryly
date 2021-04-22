@@ -4,23 +4,23 @@ const userController = require('../controllers/user.controller');
 const userAuth = require('../middlewares/auth.middleware');
 
 /* ------------ Endpoint Definitions ----------- */
-Router.get('/register', userController.renderRegister);
+Router.route('/register')
+    .get(userController.renderRegister)
+    .post(userController.Register);
 
-Router.get('/register/:error', userController.renderRegisterError);
+Router.route('/register/:error').get(userController.renderRegisterError);
 
-Router.get('/registersuccess', userController.renderRegisterSuccess);
+Router.route('/registersuccess').get(userController.renderRegisterSuccess);
 
-Router.post('/register', userController.Register);
+Router.route('/login')
+    .get(userController.renderLogin)
+    .post(userController.Login);
 
-Router.get('/login', userController.renderLogin);
+Router.route('/login/:error').get(userController.renderLoginError);
 
-Router.get('/login/:error', userController.renderLoginError);
+Router.route('/api/email/:id').get(userController.apiEmail);
 
-Router.post('/login', userController.Login);
-
-Router.get('/api/email/:id', userController.apiEmail);
-
-Router.get('/api/username/:id', userController.apiUsername);
+Router.route('/api/username/:id').get(userController.apiUsername);
 
 // Test route - to be deleted
 Router.post('/test', userAuth('member'), (req, res) =>
