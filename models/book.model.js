@@ -7,6 +7,10 @@ const bookSchema = new Schema(
             type: Schema.Types.ObjectId,
             ref: 'Category',
         },
+        _id: {
+            type: String,
+            required: true,
+        },
         title: {
             type: String,
             required: true,
@@ -23,7 +27,7 @@ const bookSchema = new Schema(
             type: String,
             required: true,
         },
-        descripton: {
+        description: {
             type: String,
             required: true,
         },

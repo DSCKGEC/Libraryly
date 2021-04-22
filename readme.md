@@ -177,7 +177,7 @@ See below for our proposed future steps.
     -   Will notify when a user request a book/gets approved
     -   When their add book request gets approved
     -   If book not returned, Notify from time to time.
-    
+
 </details>
 
 ## Getting started

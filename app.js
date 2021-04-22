@@ -63,6 +63,11 @@ app.get('/', (req, res) => {
 const userRouter = require('./routes/user.route');
 app.use('/users', userRouter);
 
+//include routes from /books
+
+const bookRouter = require('./routes/book.route');
+app.use('/books', bookRouter);
+
 // handle all routes without endpoints
 app.get('*', (req, res) => {
     res.render('not-found');
