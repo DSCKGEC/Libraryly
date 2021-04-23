@@ -1,15 +1,16 @@
 const mongoose = require('mongoose');
+const ObjectId = require('mongodb').ObjectID;
 const Schema = mongoose.Schema;
 
 const issueSchema = new Schema(
     {
         user: {
-            type: Schema.Types.ObjectId,
-            ref: 'User',
+            type: String,
+            required: true,
         },
         book: {
-            type: Schema.Types.ObjectId,
-            ref: 'Book',
+            type: String,
+            required: true,
         },
         start_date: {
             type: Number,
@@ -19,12 +20,23 @@ const issueSchema = new Schema(
         period: {
             type: Number,
             required: true,
-            // Store number of months
+            // Store number of days
         },
-        renew_date: {
-            type: Number,
-            required: true,
-            // Store in unix format
+        type: {
+            type: String,
+            default: 'First Issue',
+        },
+        approved: {
+            type: Boolean,
+            default: false,
+        },
+        approvedby: {
+            type: Schema.Types.ObjectId,
+            ref: 'User',
+        },
+        returned: {
+            type: Boolean,
+            default: false,
         },
     },
     {

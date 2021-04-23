@@ -68,6 +68,14 @@ app.use('/users', userRouter);
 const bookRouter = require('./routes/book.route');
 app.use('/books', bookRouter);
 
+//include routes from /issue
+const issueRouter = require('./routes/issue.route');
+app.use('/issue', issueRouter);
+
+//include routes from /category
+const categoryRouter = require('./routes/category.route');
+app.use('/category', categoryRouter);
+
 // handle all routes without endpoints
 app.get('*', (req, res) => {
     res.render('not-found');
