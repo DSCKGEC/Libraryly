@@ -31,8 +31,7 @@ const issueSchema = new Schema(
             default: false,
         },
         approvedby: {
-            type: Schema.Types.ObjectId,
-            ref: 'User',
+            type:String
         },
         returned: {
             type: Boolean,
