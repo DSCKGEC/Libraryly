@@ -11,6 +11,12 @@ let options = {
     httpOnly: true, // The cookie only accessible by the web server
 };
 
+let options_loggedin = {
+    path: '/',
+    sameSite: true,
+    maxAge: 1000 * 60 * 60 * Number(process.env.EXPIRY), // would expire after 30 hours
+    httpOnly: true, // The cookie only accessible by the web server
+};
 /* ------------ Controllers ----------- */
 
 const renderRegister = (req, res) => {
@@ -65,6 +71,7 @@ const Login = async (req, res) => {
         // Store the jwt token in the cookies
         res.cookie('x-access-token', result.token, options);
 
+        res.cookie('isloggedin',result.token,options_loggedin);
         // TODO: redirect to dashboard
         res.status(200).json(result);
     } catch (err) {
@@ -93,6 +100,13 @@ const apiUsername = async (req, res) => {
     }
 };
 
+const logout=(req,res)=>
+{
+    res.clearCookie("isloggedin");
+    res.clearCookie("x-access-token");
+    res.status(200).send("Logged Out");
+}
+
 module.exports = {
     Register,
     Login,
@@ -103,4 +117,5 @@ module.exports = {
     renderLoginError,
     apiEmail,
     apiUsername,
+    logout
 };

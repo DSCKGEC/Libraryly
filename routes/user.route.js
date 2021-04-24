@@ -22,9 +22,8 @@ Router.route('/api/email/:id').get(userController.apiEmail);
 
 Router.route('/api/username/:id').get(userController.apiUsername);
 
-// Test route - to be deleted
-Router.post('/test', userAuth('member'), (req, res) =>
-    res.status(200).send('Authentication Middleware Works!')
-);
+Router.route('/logout')
+    .delete(userController.logout);
+
 
 module.exports = Router;
