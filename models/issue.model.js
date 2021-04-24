@@ -6,10 +6,12 @@ const issueSchema = new Schema(
         user: {
             type: String,
             required: true,
+            ref:'User'
         },
         book: {
             type: String,
             required: true,
+            ref:'Book'
         },
         start_date: {
             type: Number,
@@ -30,7 +32,8 @@ const issueSchema = new Schema(
             default: false,
         },
         approvedby: {
-            type:String
+            type:String,
+            ref:'User'
         },
         returned: {
             type: Boolean,
