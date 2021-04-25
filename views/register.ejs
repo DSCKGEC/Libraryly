@@ -6,16 +6,7 @@
         <link rel="stylesheet" href="/css/register.css">
     </head>
     <body>
-        <% if (locals.err) { %>
-            <script>
-                Swal.fire({
-                title: 'Error!',
-                text: '<%=err%>',
-                icon: 'error',
-                confirmButtonText: 'Okay'
-            })
-            </script>
-        <% } %>
+      <%- include('partials/alerts.ejs') %>        
 <div class="container">
     <div class="info">
       <h1>Register</h1>
@@ -48,14 +39,18 @@
       <a href="#" class="tooltip-right nothing" id="phone-correct" data-tooltip="Looks Good"><i class="fas fa-check-circle"></i></a>
       <input type="number" placeholder="Phone" id="phone" name="phone" onkeyup="checkphone()" required/>
       
-      <a href="#" class="tooltip-right nothing" id="address-wrong" data-tooltip="I’m the tooltip text."><i class="fas fa-exclamation-circle"></i></a>
-      <a href="#" class="tooltip-right nothing" id="address-correct" data-tooltip="Looks Good"><i class="fas fa-check-circle"></i></a>
-      <input type="text" placeholder="Address" id="address"/>
+      <!-- <a href="#" class="tooltip-right nothing" id="address-wrong" data-tooltip="I’m the tooltip text."><i class="fas fa-exclamation-circle"></i></a>
+      <a href="#" class="tooltip-right nothing" id="address-correct" data-tooltip="Looks Good"><i class="fas fa-check-circle"></i></a> -->
+      
+      <input type="text" placeholder="Street Address" id="street_address" name="address[street_address]"/>
+      <input type="text" placeholder="City" id="city" name="address[city]"/>
+      <input type="text" placeholder="State" id="state" name="address[state]"/>
+      <input type="text" placeholder="Zipcode" id="zip_code" name="address[zip_code]"/>
       
       
-      <a href="#" class="tooltip-right nothing" id="image-wrong" data-tooltip="I’m the tooltip text."><i class="fas fa-exclamation-circle"></i></a>
+      <!-- <a href="#" class="tooltip-right nothing" id="image-wrong" data-tooltip="I’m the tooltip text."><i class="fas fa-exclamation-circle"></i></a>
       <a href="#" class="tooltip-right nothing" id="image-correct" data-tooltip="Looks Good"><i class="fas fa-check-circle"></i></a>
-      <input type="text" placeholder="Image Url" id="image" name="picture_url"/>
+      <input type="text" placeholder="Image Url" id="image" name="picture_url"/> -->
       
       <a href="#" class="tooltip-right nothing" id="group-wrong" data-tooltip="Please choose a valid group"><i class="fas fa-exclamation-circle"></i></a>
       <a href="#" class="tooltip-right nothing" id="group-correct" data-tooltip="Looks Good"><i class="fas fa-check-circle"></i></a>

@@ -11,6 +11,12 @@ let options = {
     httpOnly: true, // The cookie only accessible by the web server
 };
 
+let options_loggedin = {
+    path: '/',
+    sameSite: true,
+    maxAge: 1000 * 60 * 60 * Number(process.env.EXPIRY), // would expire after 30 hours
+    httpOnly: true, // The cookie only accessible by the web server
+};
 /* ------------ Controllers ----------- */
 
 const renderRegister = (req, res) => {
@@ -19,21 +25,6 @@ const renderRegister = (req, res) => {
 
 const renderLogin = (req, res) => {
     res.render('login');
-};
-
-const renderRegisterError = (req, res) => {
-    var err = req.params.error;
-    res.render('register', { err });
-};
-
-const renderRegisterSuccess = (req, res) => {
-    var result = 'done';
-    res.render('login', { result });
-};
-
-const renderLoginError = (req, res) => {
-    var err = req.params.error;
-    res.render('login', { err });
 };
 
 // Register controller ... uses the Register service to create new user
@@ -46,10 +37,15 @@ const Register = async (req, res) => {
         const result = await userService.Register(req.body);
 
         // redirect to login
-        res.redirect('/users/registersuccess/');
+        req.flash(
+            'success',
+            'Successfully Registered. Wait before you are verified.'
+        );
+        res.redirect('login');
     } catch (err) {
-        // redirect to render with error in partials
-        res.redirect('/users/register/' + err);
+        // redirect to render with error
+        req.flash('err', err);
+        res.redirect('register');
     }
 };
 
@@ -65,11 +61,13 @@ const Login = async (req, res) => {
         // Store the jwt token in the cookies
         res.cookie('x-access-token', result.token, options);
 
+        res.cookie('isloggedin', result.token, options_loggedin);
         // TODO: redirect to dashboard
         res.status(200).json(result);
     } catch (err) {
-        // redirect to login with error in partials
-        res.redirect('/users/login/' + err);
+        // redirect to login with error
+        req.flash('err', err);
+        res.redirect('login');
     }
 };
 
@@ -93,14 +91,56 @@ const apiUsername = async (req, res) => {
     }
 };
 
+const logout = (req, res) => {
+    res.clearCookie('isloggedin');
+    res.clearCookie('x-access-token');
+    res.status(200).send('Logged Out');
+};
+
+const renderImage = (req, res) => {
+    req.flash('info', 'upload your image');
+    res.render('dashboards/uploadimage');
+};
+
+const uploadImage = async (req, res) => {
+    var path = req.file['path'];
+    var userid = req.body.user_id;
+    try {
+        await userService.updateImage(userid, path);
+        //TODO : redireect to dashboard with success message.
+        res.status(200).send('Image Uploaded Successfully');
+    } catch {
+        // TODO: redirect to dashboard error screen
+        res.status(500).send('Error');
+    }
+};
+
+const renderDashboard = (req, res) => {
+    var group = req.body.group;
+    if (group === 'admin') {
+        res.render('dashboards/dashboard_admin', {
+            username: req.body.username,
+        });
+    } else if (group === 'member') {
+        res.render('dashboards/dashboard_member', {
+            username: req.body.username,
+        });
+    } else {
+        res.render('dashboards/dashboard_librarian', {
+            username: req.body.username,
+        });
+    }
+};
+
 module.exports = {
     Register,
     Login,
     renderRegister,
-    renderRegisterError,
-    renderRegisterSuccess,
     renderLogin,
-    renderLoginError,
     apiEmail,
     apiUsername,
+    logout,
+    renderImage,
+    uploadImage,
+    renderDashboard,
 };

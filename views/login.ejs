@@ -7,26 +7,7 @@
     </head>
     <body>
         <!-- Displaying Error Messages using Sweetalert-->
-        <% if (locals.err) { %>
-            <script>
-                Swal.fire({
-                title: 'Error!',
-                text: '<%=err%>',
-                icon: 'error',
-                confirmButtonText: 'Okay'
-            })
-            </script>
-        <% } %>
-
-        <% if (locals.result) { %>
-            <script>
-                Swal.fire({
-                title: 'Success',
-                text: 'You are successfully registered. Please wait until you are verified.',
-                icon: 'success',
-            })
-            </script>
-        <% } %>
+        <%- include('partials/alerts.ejs') %>        
 
         <div class="container">
             <div class="info">
