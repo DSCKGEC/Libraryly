@@ -10,10 +10,8 @@ const UserAuthenticationMiddleware = (group) => {
         // Access token from cookies
         var cookie = JSON.parse(JSON.stringify(req.cookies));
         if (cookie['x-access-token'] === undefined) {
-            res.send("Cookie Access Token not found");
-        }
-        else
-        {
+            res.send('Cookie Access Token not found');
+        } else {
             let token = req.cookies['x-access-token'];
 
             // Token not found
@@ -35,8 +33,14 @@ const UserAuthenticationMiddleware = (group) => {
                     return res.status(401).json({ message: 'Invalid User' });
 
                 // Check for user permissions
-                if (group !== 'all' && user.group !== group && user.group!='admin')
-                    return res.status(401).json({ message: 'Permission Denied' });
+                if (
+                    group !== 'all' &&
+                    user.group !== group &&
+                    user.group != 'admin'
+                )
+                    return res
+                        .status(401)
+                        .json({ message: 'Permission Denied' });
 
                 // Add user properties to the request body
 

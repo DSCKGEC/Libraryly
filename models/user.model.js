@@ -24,7 +24,7 @@ const userSchema = new Schema(
         },
         picture_url: {
             type: String,
-            default:"none",
+            default: 'none',
             // saved in uploads/
         },
         phone: {

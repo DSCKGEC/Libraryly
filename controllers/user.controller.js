@@ -27,21 +27,6 @@ const renderLogin = (req, res) => {
     res.render('login');
 };
 
-const renderRegisterError = (req, res) => {
-    var err = req.params.error;
-    res.render('register', { err });
-};
-
-const renderRegisterSuccess = (req, res) => {
-    var result = 'done';
-    res.render('login', { result });
-};
-
-const renderLoginError = (req, res) => {
-    var err = req.params.error;
-    res.render('login', { err });
-};
-
 // Register controller ... uses the Register service to create new user
 const Register = async (req, res) => {
     // Generate custom _id using helper method
@@ -52,10 +37,15 @@ const Register = async (req, res) => {
         const result = await userService.Register(req.body);
 
         // redirect to login
-        res.redirect('/users/registersuccess/');
+        req.flash(
+            'success',
+            'Successfully Registered. Wait before you are verified.'
+        );
+        res.redirect('login');
     } catch (err) {
-        // redirect to render with error in partials
-        res.redirect('/users/register/' + err);
+        // redirect to render with error
+        req.flash('err', err);
+        res.redirect('register');
     }
 };
 
@@ -71,12 +61,13 @@ const Login = async (req, res) => {
         // Store the jwt token in the cookies
         res.cookie('x-access-token', result.token, options);
 
-        res.cookie('isloggedin',result.token,options_loggedin);
+        res.cookie('isloggedin', result.token, options_loggedin);
         // TODO: redirect to dashboard
         res.status(200).json(result);
     } catch (err) {
-        // redirect to login with error in partials
-        res.redirect('/users/login/' + err);
+        // redirect to login with error
+        req.flash('err', err);
+        res.redirect('login');
     }
 };
 
@@ -100,22 +91,18 @@ const apiUsername = async (req, res) => {
     }
 };
 
-const logout=(req,res)=>
-{
-    res.clearCookie("isloggedin");
-    res.clearCookie("x-access-token");
-    res.status(200).send("Logged Out");
-}
+const logout = (req, res) => {
+    res.clearCookie('isloggedin');
+    res.clearCookie('x-access-token');
+    res.status(200).send('Logged Out');
+};
 
 module.exports = {
     Register,
     Login,
     renderRegister,
-    renderRegisterError,
-    renderRegisterSuccess,
     renderLogin,
-    renderLoginError,
     apiEmail,
     apiUsername,
-    logout
+    logout,
 };

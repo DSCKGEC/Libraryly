@@ -6,16 +6,7 @@
         <link rel="stylesheet" href="/css/register.css">
     </head>
     <body>
-        <% if (locals.err) { %>
-            <script>
-                Swal.fire({
-                title: 'Error!',
-                text: '<%=err%>',
-                icon: 'error',
-                confirmButtonText: 'Okay'
-            })
-            </script>
-        <% } %>
+      <%- include('partials/alerts.ejs') %>        
 <div class="container">
     <div class="info">
       <h1>Register</h1>

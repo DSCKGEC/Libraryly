@@ -11,10 +11,8 @@ const IsLoggedInMiddleware = () => {
         var cookie = JSON.parse(JSON.stringify(req.cookies));
         if (cookie['isloggedin'] === undefined) {
             // TODO: redirect to login page
-            res.send("Not logged in.")
-        }
-        else
-        {
+            res.send('Not logged in.');
+        } else {
             let token = req.cookies['isloggedin'];
 
             // Token not found

@@ -5,6 +5,9 @@ const cors = require('cors');
 const mongoose = require('mongoose');
 const cookieParser = require('cookie-parser');
 const favicon = require('serve-favicon');
+const session = require('express-session');
+const MongoDBStore = require('connect-mongo')(session);
+const flash = require('express-flash');
 
 /* ------------ Configs ----------- */
 
@@ -41,11 +44,42 @@ mongoose.connection.once('open', () =>
 // initialize the express application
 const app = express();
 
+const secret = process.env.SECRET || 'thisshouldbeasecret!';
+
+const store = new MongoDBStore({
+    url: uri,
+    secret,
+    touchAfter: 24 * 60 * 60,
+});
+
+store.on('error', function (e) {
+    console.log('SESSION STORE ERROR', e);
+});
+
+// session initialization
+const sessionConfig = {
+    store,
+    name: 'session',
+    secret,
+    resave: false,
+    saveUninitialized: true,
+    cookie: {
+        httpOnly: true,
+        //secure: true,
+        expires: Date.now() + 1000 * 60 * 60 * 24 * 7,
+        maxAge: 1000 * 60 * 60 * 24 * 7,
+    },
+};
+
 // allow cors, json, string and array parsing
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
+app.use(session(sessionConfig));
+app.use(flash());
+
+// use ejs template engine and allow serving static files
 app.use(express.static(__dirname + '/views'));
 app.set('view engine', 'ejs');
 
