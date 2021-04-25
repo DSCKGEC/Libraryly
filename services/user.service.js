@@ -60,14 +60,10 @@ const apiUsername = async (uname) => {
     return user;
 };
 
-const updateImage=async(userid,path)=>
-{
-    try
-    {
-        await User.findOneAndUpdate({_id:userid},{picture_url:path});
-    }
-    catch(err)
-    {
+const updateImage = async (userid, path) => {
+    try {
+        await User.findOneAndUpdate({ _id: userid }, { picture_url: path });
+    } catch (err) {
         throw err;
     }
 };
@@ -76,5 +72,5 @@ module.exports = {
     Login,
     apiEmail,
     apiUsername,
-    updateImage
+    updateImage,
 };
