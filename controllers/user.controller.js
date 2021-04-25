@@ -1,3 +1,4 @@
+const User = require('../models/user.model');
 const userService = require('../services/user.service');
 const helper = require('../utils/helper');
 
@@ -97,6 +98,27 @@ const logout = (req, res) => {
     res.status(200).send('Logged Out');
 };
 
+const renderImage=(req,res)=>{
+    req.flash('info','upload your image');
+    res.render('dashboards/uploadimage');
+};
+
+const uploadImage=async(req,res)=>
+{
+    var path=req.file["path"];
+    var userid=req.body.user_id;
+    try{
+        await userService.updateImage(userid,path);
+        //TODO : redireect to dashboard with success message.
+        res.status(200).send("Image Uploaded Successfully");
+    }
+    catch
+    {
+        // TODO: redirect to dashboard error screen
+        res.status(500).send("Error");
+    }
+};
+
 module.exports = {
     Register,
     Login,
@@ -105,4 +127,6 @@ module.exports = {
     apiEmail,
     apiUsername,
     logout,
+    renderImage,
+    uploadImage
 };

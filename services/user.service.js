@@ -59,9 +59,22 @@ const apiUsername = async (uname) => {
     const user = await User.findOne({ username: uname });
     return user;
 };
+
+const updateImage=async(userid,path)=>
+{
+    try
+    {
+        await User.findOneAndUpdate({_id:userid},{picture_url:path});
+    }
+    catch(err)
+    {
+        throw err;
+    }
+};
 module.exports = {
     Register,
     Login,
     apiEmail,
     apiUsername,
+    updateImage
 };
