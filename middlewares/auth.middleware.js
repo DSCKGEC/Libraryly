@@ -47,6 +47,7 @@ const UserAuthenticationMiddleware = (group) => {
                 req.body.email = user.email;
                 req.body.user_id = user._id;
                 req.body.group = user.group;
+                req.body.username = user.username;
 
                 // Call next middleware on successful validation
                 next();

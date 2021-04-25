@@ -115,6 +115,23 @@ const uploadImage = async (req, res) => {
     }
 };
 
+const renderDashboard = (req, res) => {
+    var group = req.body.group;
+    if (group === 'admin') {
+        res.render('dashboards/dashboard_admin', {
+            username: req.body.username,
+        });
+    } else if (group === 'member') {
+        res.render('dashboards/dashboard_member', {
+            username: req.body.username,
+        });
+    } else {
+        res.render('dashboards/dashboard_librarian', {
+            username: req.body.username,
+        });
+    }
+};
+
 module.exports = {
     Register,
     Login,
@@ -125,4 +142,5 @@ module.exports = {
     logout,
     renderImage,
     uploadImage,
+    renderDashboard,
 };

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Dashboard Admin</title>
+        <%- include('../partials/header') %>
+        <link rel="stylesheet" href="/css/dashboards/dashboard_admin.css">
+        <script src="/js/dashboards/dashboard_admin.js"></script>
+    </head>
+    <body>
+        <%- include('../partials/alerts') %>
+        <h1>Dashboard Admin. Hi <%=username%></h1> 
+        <h3>
+            <form action="logout" method="POST">
+                <button type="submit">Logout</button>
+            </form>
+        </h3>
+        <h3><a href="image"><button>Click to change image</button></a></h3>
+    </body>
+</html>
