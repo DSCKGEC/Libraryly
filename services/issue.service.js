@@ -3,13 +3,19 @@ const User = require('../models/user.model');
 const Book = require('../models/book.model');
 
 const NewIssue = async (issueBody) => {
+    var book = await Book.findById(issueBody.book);
     if (!(await User.findById(issueBody.user))) {
         throw 'User Id does not Exist.';
-    } else if (!(await Book.findById(issueBody.book))) {
+    } else if (!book) {
         throw 'Book Id does not Exist.';
+    } else if (book.inventory === 0) {
+        throw 'Sorry! No books are available.';
     } else {
         try {
-            return await Issue.create(issueBody);
+            var issue = await Issue.create(issueBody);
+            book.inventory--;
+            await book.save();
+            return issue;
         } catch (error) {
             throw error;
         }
@@ -22,10 +28,21 @@ const getIssueById = async (id) => {
 };
 
 const ReturnBook = async (id) => {
-    try {
-        await Issue.findOneAndUpdate({ _id: id }, { returned: true });
-    } catch (err) {
-        throw err;
+    var issue = await Issue.findById(id);
+    if (!issue) {
+        throw 'Issue not found';
+    } else if (issue.approved === false) {
+        throw 'The issue is not approved';
+    } else {
+        try {
+            var book = await Book.findById(issue.book);
+            book.inventory++;
+            await book.save();
+            issue.returned = true;
+            await issue.save();
+        } catch (err) {
+            throw err;
+        }
     }
 };
 module.exports = {
