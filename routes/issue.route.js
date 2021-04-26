@@ -20,4 +20,5 @@ Router.route('/return/:id').post(
     issueController.returnBook
 );
 
+Router.route('/renew/:id').post(issueController.renewBook);
 module.exports = Router;

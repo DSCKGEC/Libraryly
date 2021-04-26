@@ -81,7 +81,7 @@ app.use(cookieParser());
 app.use(session(sessionConfig));
 app.use(flash());
 app.use(methodOverride('_method'));
-app.use(helmet({contentSecurityPolicy:false}));
+app.use(helmet({ contentSecurityPolicy: false }));
 
 // use ejs template engine and allow serving static files
 app.use(express.static(__dirname + '/views'));

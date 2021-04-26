@@ -33,6 +33,8 @@ const ReturnBook = async (id) => {
         throw 'Issue not found';
     } else if (issue.approved === false) {
         throw 'The issue is not approved';
+    } else if (issue.returned === true) {
+        throw 'Book already returned';
     } else {
         try {
             var book = await Book.findById(issue.book);
@@ -45,8 +47,37 @@ const ReturnBook = async (id) => {
         }
     }
 };
+
+const RenewBook = async (id, start_time, period) => {
+    var issue = await Issue.findById(id);
+    if (!issue) {
+        throw 'Issue not found';
+    } else if (issue.approved === false) {
+        throw 'The issue is not approved';
+    }
+    // else if (issue.returned === true) {
+    //     throw 'Book already returned';
+    // }
+    else {
+        try {
+            var issuenew = {};
+            issuenew.type = 'renew';
+            issuenew.user = issue.user;
+            issuenew.book = issue.book;
+            issuenew.start_date = start_time;
+            issuenew.period = period;
+            var newissue = await Issue.create(issuenew);
+            issue.returned = true;
+            await issue.save();
+            return newissue;
+        } catch (err) {
+            throw err;
+        }
+    }
+};
 module.exports = {
     NewIssue,
     getIssueById,
     ReturnBook,
+    RenewBook,
 };
