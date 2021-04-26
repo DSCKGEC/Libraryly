@@ -9,7 +9,7 @@ const session = require('express-session');
 const MongoDBStore = require('connect-mongo')(session);
 const flash = require('express-flash');
 const helmet = require('helmet');
-var methodOverride = require('method-override');
+const methodOverride = require('method-override');
 
 /* ------------ Configs ----------- */
 
@@ -81,7 +81,7 @@ app.use(cookieParser());
 app.use(session(sessionConfig));
 app.use(flash());
 app.use(methodOverride('_method'));
-app.use(helmet());
+app.use(helmet({contentSecurityPolicy:false}));
 
 // use ejs template engine and allow serving static files
 app.use(express.static(__dirname + '/views'));
