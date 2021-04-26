@@ -119,15 +119,15 @@ const renderDashboard = (req, res) => {
     var group = req.body.group;
     if (group === 'admin') {
         res.render('dashboards/dashboard_admin', {
-            username: req.body.username,
+            body: req.body,
         });
     } else if (group === 'member') {
         res.render('dashboards/dashboard_member', {
-            username: req.body.username,
+            body: req.body,
         });
     } else {
         res.render('dashboards/dashboard_librarian', {
-            username: req.body.username,
+            body: req.body,
         });
     }
 };

@@ -83,6 +83,14 @@ const renderSearchBook = async (req, res) => {
     }
 };
 
+const renderAllBooks = async (req, res) => {
+    var books = await bookService.AllBooks();
+    if (!books) {
+        res.status(404).send('No Books Found');
+    } else {
+        res.status(200).send(books);
+    }
+};
 module.exports = {
     renderAddBook,
     addBook,
@@ -91,4 +99,5 @@ module.exports = {
     editBook,
     deleteBook,
     renderSearchBook,
+    renderAllBooks,
 };

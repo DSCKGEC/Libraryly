@@ -42,10 +42,15 @@ const FindBookByField = async (field, query) => {
     return book;
 };
 
+const AllBooks = async () => {
+    var books = await Book.find({});
+    return books;
+};
 module.exports = {
     AddBook,
     FindBook,
     UpdateBook,
     DeleteBook,
     FindBookByField,
+    AllBooks,
 };
