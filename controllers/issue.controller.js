@@ -34,17 +34,47 @@ const renderIssue = async (req, res) => {
 
 const returnBook = async (req, res) => {
     var id = req.params.id;
-    if (!(await issueService.getIssueById(id))) {
-        // TODO: render error page
-        res.status(404).send('id doesnt exist');
-    } else {
+    try {
         await issueService.ReturnBook(id);
+        // TODO:
         res.status(200).send('Return success');
+    } catch (err) {
+        // TODO:
+        res.status(404).send(err);
     }
 };
+
+const renewBook = async (req, res) => {
+    var id = req.params.id;
+    var period = req.body.period;
+    var start_time = req.body.start_time;
+    try {
+        var newissue = await issueService.RenewBook(id, start_time, period);
+        // TODO:
+        res.status(200).send(newissue);
+    } catch (err) {
+        // TODO:
+        res.status(404).send(err);
+    }
+};
+
+const approveIssue = async (req, res) => {
+    var id = req.params.id;
+    try {
+        await issueService.approveIssue(id);
+        // TODO: redirect to success page
+        res.status(200).send('Approved');
+    } catch (err) {
+        //TODO: redirect to error page
+        res.status(400).send(err);
+    }
+};
+
 module.exports = {
     renderNewIssue,
     newIssue,
     renderIssue,
     returnBook,
+    renewBook,
+    approveIssue,
 };

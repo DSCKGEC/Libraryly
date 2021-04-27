@@ -67,10 +67,28 @@ const updateImage = async (userid, path) => {
         throw err;
     }
 };
+
+const verifyUser = async (id) => {
+    var user = await User.findById(id);
+    if (!user) {
+        throw 'user doesnt exist';
+    } else if (user.status === 'verified') {
+        throw 'Already Verified';
+    } else {
+        try {
+            user.status = 'verified';
+            await user.save();
+        } catch (err) {
+            throw err;
+        }
+    }
+};
+
 module.exports = {
     Register,
     Login,
     apiEmail,
     apiUsername,
     updateImage,
+    verifyUser,
 };

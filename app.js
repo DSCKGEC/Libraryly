@@ -8,6 +8,8 @@ const favicon = require('serve-favicon');
 const session = require('express-session');
 const MongoDBStore = require('connect-mongo')(session);
 const flash = require('express-flash');
+const helmet = require('helmet');
+const methodOverride = require('method-override');
 
 /* ------------ Configs ----------- */
 
@@ -44,7 +46,7 @@ mongoose.connection.once('open', () =>
 // initialize the express application
 const app = express();
 
-const secret = process.env.SECRET || 'thisshouldbeasecret!';
+const secret = process.env.SECRET;
 
 const store = new MongoDBStore({
     url: uri,
@@ -71,13 +73,15 @@ const sessionConfig = {
     },
 };
 
-// allow cors, json, string and array parsing
+// allow cors, json, string and array parsing,session, flash and helmet
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 app.use(session(sessionConfig));
 app.use(flash());
+app.use(methodOverride('_method'));
+app.use(helmet({ contentSecurityPolicy: false }));
 
 // use ejs template engine and allow serving static files
 app.use(express.static(__dirname + '/views'));

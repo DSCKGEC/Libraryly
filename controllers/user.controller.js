@@ -109,9 +109,21 @@ const uploadImage = async (req, res) => {
         await userService.updateImage(userid, path);
         //TODO : redireect to dashboard with success message.
         res.status(200).send('Image Uploaded Successfully');
-    } catch {
+    } catch (err) {
         // TODO: redirect to dashboard error screen
         res.status(500).send('Error');
+    }
+};
+
+const verifyUser = async (req, res) => {
+    var id = req.body.id;
+    try {
+        await userService.verifyUser(id);
+        // TODO: redirect to success page
+        res.status(200).send('Verify Success');
+    } catch (err) {
+        // TODO: redirect to error
+        res.status(400).send(err);
     }
 };
 
@@ -119,15 +131,15 @@ const renderDashboard = (req, res) => {
     var group = req.body.group;
     if (group === 'admin') {
         res.render('dashboards/dashboard_admin', {
-            username: req.body.username,
+            body: req.body,
         });
     } else if (group === 'member') {
         res.render('dashboards/dashboard_member', {
-            username: req.body.username,
+            body: req.body,
         });
     } else {
         res.render('dashboards/dashboard_librarian', {
-            username: req.body.username,
+            body: req.body,
         });
     }
 };
@@ -143,4 +155,5 @@ module.exports = {
     renderImage,
     uploadImage,
     renderDashboard,
+    verifyUser,
 };
