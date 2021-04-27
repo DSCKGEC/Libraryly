@@ -20,5 +20,9 @@ Router.route('/return/:id').post(
     issueController.returnBook
 );
 
-Router.route('/renew/:id').post(issueController.renewBook);
+Router.route('/renew/:id').post(
+    isLoggedin(),
+    userAuth('all'),
+    issueController.renewBook
+);
 module.exports = Router;
