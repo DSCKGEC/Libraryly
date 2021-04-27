@@ -14,6 +14,12 @@ Router.route('/:id').get(
     issueController.renderIssue
 );
 
+Router.route('/approve/:id').post(
+    isLoggedin(),
+    userAuth('librarian'),
+    issueController.approveIssue
+);
+
 Router.route('/return/:id').post(
     isLoggedin(),
     userAuth('all'),

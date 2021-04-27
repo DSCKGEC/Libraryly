@@ -57,10 +57,24 @@ const renewBook = async (req, res) => {
         res.status(404).send(err);
     }
 };
+
+const approveIssue = async (req, res) => {
+    var id = req.params.id;
+    try {
+        await issueService.approveIssue(id);
+        // TODO: redirect to success page
+        res.status(200).send('Approved');
+    } catch (err) {
+        //TODO: redirect to error page
+        res.status(400).send(err);
+    }
+};
+
 module.exports = {
     renderNewIssue,
     newIssue,
     renderIssue,
     returnBook,
     renewBook,
+    approveIssue,
 };

@@ -31,7 +31,11 @@ Router.route('/image')
         userController.uploadImage
     );
 
-Router.route('/verify').post(userController.verifyUser);
+Router.route('/verify').post(
+    isloggedin(),
+    userAuth('librarian'),
+    userController.verifyUser
+);
 
 Router.route('/dashboard').get(
     isloggedin(),

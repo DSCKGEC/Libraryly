@@ -75,9 +75,26 @@ const RenewBook = async (id, start_time, period) => {
         }
     }
 };
+
+const approveIssue = async (id) => {
+    var issue = await Issue.findById(id);
+    if (!issue) {
+        throw 'Issue not found';
+    } else if (issue.approved === true) {
+        throw 'Already approved';
+    } else {
+        try {
+            issue.approved = true;
+            await issue.save();
+        } catch (err) {
+            throw err;
+        }
+    }
+};
 module.exports = {
     NewIssue,
     getIssueById,
     ReturnBook,
     RenewBook,
+    approveIssue,
 };
