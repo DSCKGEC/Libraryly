@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Add Book</title>
+        <%- include('../partials/header') %>
+        <link rel="stylesheet" href="/css/books/add_book.css">
+        <script src="/js/books/add_book.js"></script>
+    </head>
+    <body>
+        <%- include('../partials/alerts') %>        
+        Add Book<br>
+        <form action="/books/add" method="POST">
+            <label>Title</label>
+            <input type="text" name="title"><br>
+            <label>category_id</label>
+            <input type="text" name="category"><br>
+            <label>Inventory</label>
+            <input type="number" name="inventory"><br>
+            <label>Publisher</label>
+            <input type="text" name="publisher"><br>
+            <label>Author</label>
+            <input type="text" name="author"><br>
+            <label>Description</label>
+            <textarea name="description"></textarea><br>
+            <label>Pages</label>
+            <input type="text" name="pages"><br>
+            <label>Price</label>
+            <input type="text" name="price"><br>
+            <label>ISBN</label>
+            <input type="text" name="ISBN"><br>
+            <button type="submit">Submit</button>
+        </form>
+    </body>
+</html>
