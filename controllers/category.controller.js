@@ -2,7 +2,8 @@ const categoryService = require('../services/category.service');
 
 const renderNewCategory = (req, res) => {
     // TODO: render add category
-    res.status(200).send('New Category');
+    //res.status(200).send('New Category');
+    res.status(200).render('categories/add_category')
 };
 
 const newCategory = async (req, res) => {

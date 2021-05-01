@@ -12,7 +12,7 @@ Router.route('/').get(
 );
 
 Router.route('/add')
-    .get(isLoggedin(), userAuth('all'), categoryController.renderNewCategory)
-    .post(isLoggedin(), userAuth('all'), categoryController.newCategory);
+    .get(isLoggedin(), userAuth('librarian'), categoryController.renderNewCategory)
+    .post(isLoggedin(), userAuth('librarian'), categoryController.newCategory);
 
 module.exports = Router;
