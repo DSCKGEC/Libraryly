@@ -1,5 +1,4 @@
 const jwt = require('jsonwebtoken');
-const User = require('../models/user.model');
 
 /* ------------ Authentication Middleware ----------- */
 // TODO: redirect to login with partials for all 401 and 500 responses

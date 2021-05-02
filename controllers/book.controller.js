@@ -3,7 +3,7 @@ const helper = require('../utils/helper');
 
 const renderAddBook = (req, res) => {
     // TODO: Render Add Book Page
-    res.status(201).send('Add book');
+    res.status(200).render('books/add_book');
 };
 
 const addBook = async (req, res) => {
