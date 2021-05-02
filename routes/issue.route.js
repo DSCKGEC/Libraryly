@@ -3,10 +3,16 @@ const Router = express.Router();
 const issueController = require('../controllers/issue.controller');
 const isLoggedin = require('../middlewares/login.middleware');
 const userAuth = require('../middlewares/auth.middleware');
+const SanitizerMiddleware = require('../middlewares/sanitize.middleware');
 /* ------------ Endpoint Definitions ----------- */
 Router.route('/new')
     .get(isLoggedin(), userAuth('all'), issueController.renderNewIssue)
-    .post(isLoggedin(), userAuth('all'), issueController.newIssue);
+    .post(
+        isLoggedin(),
+        userAuth('all'),
+        SanitizerMiddleware(),
+        issueController.newIssue
+    );
 
 Router.route('/:id').get(
     isLoggedin(),

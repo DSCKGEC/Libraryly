@@ -6,11 +6,12 @@ const isloggedin = require('../middlewares/login.middleware');
 const multer = require('multer');
 const { storage } = require('../cloudinary');
 const upload = multer({ storage });
+const SanitizerMiddleware = require('../middlewares/sanitize.middleware');
 
 /* ------------ Endpoint Definitions ----------- */
 Router.route('/register')
     .get(userController.renderRegister)
-    .post(userController.Register);
+    .post(SanitizerMiddleware(), userController.Register);
 
 Router.route('/login')
     .get(userController.renderLogin)
