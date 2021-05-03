@@ -67,12 +67,14 @@ const sessionConfig = {
     saveUninitialized: true,
     cookie: {
         httpOnly: true,
-        //secure: true,
         expires: Date.now() + 1000 * 60 * 60 * 24 * 7,
         maxAge: 1000 * 60 * 60 * 24 * 7,
     },
 };
-
+if(process.env.ENV==="production")
+{
+    sessionConfig.cookie.secure=true;
+}
 // allow cors, json, string and array parsing,session, flash and helmet
 app.use(cors());
 app.use(express.json());
