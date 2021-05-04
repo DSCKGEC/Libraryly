@@ -17,6 +17,12 @@ let options_loggedin = {
     maxAge: 1000 * 60 * 60 * Number(process.env.EXPIRY), // would expire after 30 hours
     httpOnly: true, // The cookie only accessible by the web server
 };
+
+if(process.env.ENV==="production")
+{
+    options.secure=true;
+    options_loggedin.secure=true;
+}
 /* ------------ Controllers ----------- */
 
 const renderRegister = (req, res) => {
