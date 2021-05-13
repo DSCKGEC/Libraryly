@@ -21,6 +21,8 @@ Router.route('/api/email/:id').get(userController.apiEmail);
 
 Router.route('/api/username/:id').get(userController.apiUsername);
 
+Router.route('/api/phone-number/:id').get(userController.apiPhone);
+
 Router.route('/logout').post(isloggedin(), userController.logout);
 
 Router.route('/image')
