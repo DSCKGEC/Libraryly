@@ -60,6 +60,11 @@ const apiUsername = async (uname) => {
     return user;
 };
 
+const apiPhone = async (phone) => {
+    const user = await User.findOne({phone: phone});
+    return user;
+};
+
 const updateImage = async (userid, path) => {
     try {
         await User.findOneAndUpdate({ _id: userid }, { picture_url: path });
@@ -89,6 +94,7 @@ module.exports = {
     Login,
     apiEmail,
     apiUsername,
+    apiPhone,
     updateImage,
     verifyUser,
 };

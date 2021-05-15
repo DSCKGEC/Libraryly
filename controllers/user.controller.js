@@ -97,6 +97,16 @@ const apiUsername = async (req, res) => {
     }
 };
 
+const apiPhone = async (req, res) => {
+    var phone = req.params.id;
+    const user = await userService.apiPhone(phone);
+    if(!user){
+        res.send('0');
+    } else{
+        res.send('1');
+    }
+}
+
 const logout = (req, res) => {
     res.clearCookie('isloggedin');
     res.clearCookie('x-access-token');
@@ -157,6 +167,7 @@ module.exports = {
     renderLogin,
     apiEmail,
     apiUsername,
+    apiPhone,
     logout,
     renderImage,
     uploadImage,

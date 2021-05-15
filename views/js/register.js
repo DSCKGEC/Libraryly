@@ -99,13 +99,14 @@ async function checkemail() {
     }
 }
 
-function checkphone() {
-    var phone = document.querySelector('#phone').value;
+async function checkphone() {
+    var phone = document.querySelector('#phone-number').value;
+    await call_ajax('phone-number', phone);
     var phoneformat = /^\d{10}$/;
     if (phone.match(phoneformat)) {
-        toggle_status('phone', 0);
+        toggle_status('phone-number', 0);
     } else {
-        toggle_status('phone', 1);
+        toggle_status('phone-number', 1);
     }
 }
 
