@@ -13,8 +13,11 @@ const SanitizerMiddleware = () => {
         for (let [key, value] of Object.entries(req.body)) {
             if (value !== sanitizeHtml(value, sanitizer)) {
                 // TODO: handle error
-                res.status(500).send(key + ' must not include HTML!');
-                m = 1;
+                if(typeof value !== 'object'){
+                    res.status(500).send(key + ' must not include HTML!');
+                    m = 1;
+                }
+                
             }
         }
         if (m == 0) next();
