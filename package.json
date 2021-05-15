@@ -7,7 +7,7 @@
         "test": "tests"
     },
     "scripts": {
-        "test": "mocha $npm_package_directories_test/*.js --exit",
+        "test": "mocha $npm_package_directories_test*.js --exit",
         "start": "node app.js",
         "dev": "nodemon app.js"
     },
