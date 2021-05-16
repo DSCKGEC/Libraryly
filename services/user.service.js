@@ -22,12 +22,12 @@ const Register = async (userBody) => {
 };
 
 // Login service ... receives email, password and validates the user login
-const Login = async (email, password) => {
+const Login = async (emailoruser, password) => {
     // Find user in the database
-    const user = await User.findOne({ email });
+    const user = await User.findOne({$or: [{email: emailoruser}, {username: emailoruser}]});
 
     // Email doesn't match
-    if (!user) throw 'Invalid Email or Password';
+    if (!user) throw 'Invalid Email/Username or Password';
 
     // Password doesn't match
     if (!(await bcrypt.compare(password, user.password)))
