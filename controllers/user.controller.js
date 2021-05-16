@@ -60,7 +60,7 @@ const Login = async (req, res) => {
     try {
         // receives jwt token and user document as object
         const result = await userService.Login(
-            req.body.email,
+            req.body.emailoruser,
             req.body.password
         );
 
