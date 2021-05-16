@@ -4,6 +4,8 @@
 
 An online library management solution
 
+<details><summary>Frontend Theming Conventions</summary>
+
 ## Theme
     Neumorphism
 
@@ -12,9 +14,10 @@ An online library management solution
    standard- #ff8303 
 
 ## Acessibilities
--> Neumorphic box shadow for logo
-             
-        box-shadow: 
+- Neumorphic box shadows
+         
+    ```
+    box-shadow: 
     /* logo shadow */
     0px 0px 2px #5f5f5f,
     /* offset */
@@ -23,23 +26,28 @@ An online library management solution
     8px 8px 15px #a7aaaf,
     /* top left */
     -8px -8px 15px #ffffff;
+    ```
 
--> Neumorphic box-shadow(elevated)       
+- Neumorphic box-shadow(elevated)  
+     ```
     box-shadow: 13px 13px 20px #cbced1,
               -13px -13px 20px #ffffff;
+    ```
 
--> Neumorphic box-shadow(dropped)       
+- Neumorphic box-shadow(dropped)   
+    ```
     box-shadow: inset 8px 8px 8px #cbced1,
               inset -8px -8px 8px #ffffff;
+    ```
 
--> Standard border radius    
+- Standard border radius    
     border-radius: 25px;
 
--> padding:  30px (minimum)  
+- padding:  30px (minimum)  
     
--> Margin ->   mininum- 16px.
+- Margin ->   mininum- 16px.
 
-
+</details>
 
 ## Contents
 
