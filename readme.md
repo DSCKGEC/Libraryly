@@ -81,19 +81,18 @@ The current project structure is as follows:
 
 ## Project roadmap
 
-> TODO: update this section before 15th April
-
 The project currently does the following things.
 
--   Feature 1
--   Feature 2
--   Feature 3
+-   Register / Login users
+-   Create, Read, Update, Delete operations for books
+-   Issue, Renew, Return operations for books
+-   Create and Read operations for categories
 
 See below for our proposed future steps.
 
 <details><summary>Click to expand</summary>
 	
--   Sign-up/Login Page for users/librarians (Frontend validation included)
+- [x] Sign-up/Login Page for users/librarians (Frontend validation included)
 
     Sign-Up User/Librarian page details-
 
@@ -120,24 +119,26 @@ See below for our proposed future steps.
     -   Password
     -   Groups
 
--   Dashboard Page for Admins
+- [ ] Dashboard for Admins
 
     All-in-one management.
 
     -   User - Approve/Ban/Disapprove
     -   Librarian - Approve/Ban/Disapprove
-    -   All book requests
+    -   Manage all book requests
 
--   Dashboard Page for Users - Add book/Request book
+- [ ] Dashboard for Users - Add book/Request book
     -   Contain all books taken and display the fine(if any)
     -   All books added by the User
--   Dashboard Page for librarian
+    
+- [ ] Dashboard Page for librarian
     -   check user request/add book
     -   New Requests-approve/disapprove/ask for more or less time
     -   Verify Book Details
     -   A separate tab if book not returned
     -   All books added by the librarian
--   Add Book Page- (for librarian/user)
+
+- [ ] Add-Book Page- (for librarian/user)
 
     Book Details (Frontend validation included)
 
@@ -153,12 +154,14 @@ See below for our proposed future steps.
     -   Publisher
     -   Inventory
 
-        Admin/Librarian Side Controls:-
+    Admin/Librarian Side Controls:-
 
     -   Status- Check Book details and add to the library.
 
--   Request Book Page
-    For Users-can request books for a fixed time period
+- [ ] Request-Book Page
+
+    For Users
+    - can request books for a fixed time period
 
     Fields:
 
@@ -166,14 +169,14 @@ See below for our proposed future steps.
     -   \_id
     -   Time start
     -   Time end
+
         Admin/Libarian side controls:-
     -   Returned-yes/no
 
     For Librarians-
-
     -   Can grant book request/deny them or change the time-period
 
--   A notification tab in User/Librarian dashboard
+- [ ] A notification tab in User/Librarian dashboard
     -   Will notify when a user request a book/gets approved
     -   When their add book request gets approved
     -   If book not returned, Notify from time to time.
