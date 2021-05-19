@@ -23,7 +23,7 @@ const addBook = async (req, res) => {
 };
 
 const renderBook = async (req, res) => {
-    var book_id = req.params.id;
+    var book_id = req.params.bookId;
     const book = await bookService.FindBook(book_id);
     if (!book) {
         // TODO: redirect to book not found page

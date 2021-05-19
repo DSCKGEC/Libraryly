@@ -9,7 +9,8 @@ const AddBook = async (bookBody) => {
 };
 
 const FindBook = async (id) => {
-    const book = await Book.findOne({ _id: id });
+    //recieves book with populated reviews
+    const book = await Book.findById(id).populate('reviews');
     return book;
 };
 

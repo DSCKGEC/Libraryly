@@ -3,13 +3,14 @@ const Schema = mongoose.Schema;
 
 const bookSchema = new Schema(
     {
-        category: 
-        [
-            { type: Schema.Types.ObjectId, ref: 'Category'}
-        ],
+        category: [{ type: Schema.Types.ObjectId, ref: 'Category' }],
         _id: {
             type: String,
             required: true,
+        },
+        rating: {
+            type: Number,
+            default: 0,
         },
         title: {
             type: String,
@@ -49,6 +50,15 @@ const bookSchema = new Schema(
         timestamps: true,
     }
 );
+
+bookSchema.virtual('reviews', {
+    ref: 'Review',
+    foreignField: 'book',
+    localField: '_id',
+});
+
+bookSchema.set('toObject', { virtuals: true });
+bookSchema.set('toJSON', { virtuals: true });
 
 let Book = mongoose.model('Book', bookSchema);
 
