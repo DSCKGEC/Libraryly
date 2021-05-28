@@ -59,7 +59,7 @@ const editBook = async (req, res) => {
 };
 
 const deleteBook = async (req, res) => {
-    var book_id = req.params.id;
+    var book_id = req.params.bookId;
     try {
         await bookService.DeleteBook(book_id);
         // TODO: redirect to delete success
