@@ -3,12 +3,12 @@ const Schema = mongoose.Schema;
 
 const reviewSchema = new Schema(
     {
-        user: {
+        user_id: {
             type: String,
             required: true,
             ref: 'User',
         },
-        book: {
+        book_id: {
             type: String,
             required: true,
             ref: 'Book',
@@ -28,7 +28,7 @@ const reviewSchema = new Schema(
 );
 
 reviewSchema.pre('find', function (next) {
-    this.populate('user', 'name picture_url');
+    this.populate('user_id', 'name picture_url');
     next();
 });
 

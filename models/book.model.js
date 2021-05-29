@@ -53,7 +53,7 @@ const bookSchema = new Schema(
 
 bookSchema.virtual('reviews', {
     ref: 'Review',
-    foreignField: 'book',
+    foreignField: 'book_id',
     localField: '_id',
 });
 

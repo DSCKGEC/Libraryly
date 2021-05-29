@@ -33,11 +33,11 @@ const bookRatingUpdate = async (bookId) => {
         //aggregate the rating of all reviews for the book with given bookId
         const stats = await Review.aggregate([
             {
-                $match: { book: bookId },
+                $match: { book_id: bookId },
             },
             {
                 $group: {
-                    _id: '$book',
+                    _id: '$book_id',
                     avgRating: { $avg: '$rating' },
                 },
             },

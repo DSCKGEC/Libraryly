@@ -10,13 +10,13 @@ const renderUpdateReview = (req, res) => {
 
 //addReview controller uses addReview service to create new review
 const addReview = async (req, res) => {
-    req.body.book = req.params.bookId;
+    req.body.book_id = req.params.bookId;
     try {
         //recieves the created review document as object
         const review = await reviewService.addReview(req.body);
         if (review) {
             //updates the avg rating of book using bookRatingUpdate service
-            await reviewService.bookRatingUpdate(req.body.book);
+            await reviewService.bookRatingUpdate(req.body.book_id);
         }
         res.status(200).send(review);
     } catch (err) {
