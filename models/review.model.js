@@ -26,6 +26,8 @@ const reviewSchema = new Schema(
         timestamps: true,
     }
 );
+//allow a user to review only one time for a particular book
+reviewSchema.index({ user_id: 1, book_id: 1 }, { unique: true });
 
 reviewSchema.pre('find', function (next) {
     this.populate('user_id', 'name picture_url');

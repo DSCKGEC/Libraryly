@@ -51,9 +51,18 @@ const bookRatingUpdate = async (bookId) => {
     }
 };
 
+const findReviewer = async (reviewId) => {
+    try {
+        return await Review.findById(reviewId, 'user_id');
+    } catch (err) {
+        throw err;
+    }
+};
+
 module.exports = {
     addReview,
     bookRatingUpdate,
     updateReview,
     deleteReview,
+    findReviewer,
 };

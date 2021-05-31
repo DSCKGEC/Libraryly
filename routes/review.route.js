@@ -4,6 +4,7 @@ const reviewController = require('../controllers/review.controller');
 const isLoggedin = require('../middlewares/login.middleware');
 const userAuth = require('../middlewares/auth.middleware');
 const SanitizerMiddleware = require('../middlewares/sanitize.middleware');
+const checkReviewer = require('../middlewares/checkreviewer.middleware');
 /* ------------ Endpoint Definitions ----------- */
 
 Router.route('/create')
@@ -21,12 +22,14 @@ Router.route('/update/:reviewId')
         isLoggedin(),
         userAuth('all'),
         SanitizerMiddleware(),
+        checkReviewer(),
         reviewController.updateReview
     );
 
 Router.route('/delete/:reviewId').delete(
     isLoggedin(),
     userAuth('all'),
+    checkReviewer(),
     reviewController.deleteReview
 );
 
