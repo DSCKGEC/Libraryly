@@ -1,0 +1,206 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+div{
+    text-align: center;
+}
+
+#book-hand{
+    animation: book-keeping 2s ease-in-out forwards ;
+    
+    transform-origin: 400px 300px;
+    transform-box: initial;
+}
+#total-body{
+   
+    animation: walking 6s ease-out forwards;
+}
+
+#leaf1{
+     animation: leafmoving 4s linear infinite;
+     transform-origin: 70px 515px;
+    transform-box: initial;
+}
+@keyframes leafmoving{
+    0%{
+        transform: rotateZ(0deg);
+    }25%{
+        transform: rotateZ(-40deg);
+    }50%{
+        transform: rotateZ(0deg);
+    }75%{
+        transform: rotateZ(10deg);
+    }100%{
+         transform: rotateZ(0deg);
+    }
+
+}
+#leaf2{
+     animation: leafmoving2 4s linear infinite;
+     transform-origin: 82px 520px;
+    transform-box: initial;
+}
+@keyframes leafmoving2{
+    0%{
+        transform: rotateZ(20deg);
+    }25%{
+        transform: rotateZ(0deg);
+    }50%{
+        transform: rotateZ(40deg);
+    }70%{
+         transform: rotateZ(0deg);
+    }
+    100%{
+         transform: rotateZ(20deg);
+    }
+
+}
+@keyframes walking{
+    0%{
+        transform: translateX(500px);
+    }
+    20%{
+        transform: translateX(0);
+    }100%{
+       transform: translateX(500);
+    }
+}
+
+@keyframes book-keeping{
+    0%{
+        transform: rotateZ(10deg);
+    }
+    
+    
+    60%{
+        transform: rotateZ(-80deg);
+
+    }100%{
+        transform: rotateZ(10deg);
+
+    }
+}
+#book1{
+    animation: book-1 2s forwards ease-in ;
+    animation-delay: 2s;
+    transform-origin: 45px 15px;
+    transform-box:initial;
+}
+#book2{
+    animation: book-2 2s forwards ease-in ;
+    animation-delay: 2s;
+}
+#book3{
+    animation: book-3 2s forwards ease-in ;
+    animation-delay: 2s;
+}#book4{
+    animation: book-4 2s forwards ease-in ;
+    animation-delay: 2s;
+}
+#book5{
+    animation: book-5 2s forwards ease-in ;
+    animation-delay: 2s;
+}
+#book6{
+    animation: book-6 2s forwards ease-in ;
+    animation-delay: 2s;
+}
+#book7{
+    animation: book-7 2s forwards ease-in ;
+    animation-delay: 2s;
+    transform-origin: 162px 15px;
+    transform-box:initial;
+}
+#head{
+    animation: heads 3s linear infinite ;
+    transform-origin: 380px 250px;
+}
+.cover{
+    height: 100px;
+    width: 100px;
+    background-color: #ff8303;
+}
+@keyframes heads{
+    0%{
+        transform: rotateZ(0deg);
+    }
+    50%{
+        transform: rotateZ(-10deg);
+    }
+    100%{
+        transform: rotateZ(0deg);
+    }
+}
+
+@keyframes book-1{
+    0%{
+        transform:rotateZ(0deg); 
+    }20%{
+        transform:rotateZ(21deg) translateX(43px); 
+    }100%{
+        transform:rotateZ(21deg)  translateX(43px); 
+    }
+    
+}
+@keyframes book-2{
+    0%{
+        transform: translateX(0px);
+    }20%{
+        transform: translateX(-50px);
+    }100%{
+        transform: translateX(-50px);
+    }
+    
+}
+@keyframes book-3{
+    0%{
+        transform: translateX(0px);
+    }20%{
+        transform: translateX(-103px);
+    }100%{
+        transform: translateX(-103px);
+    }
+    
+}
+@keyframes book-4{
+    0%{
+        transform: translateX(0px);
+    }20%{
+        transform: translateX(-120px);
+    }100%{
+        transform: translateX(-120px);
+    }
+    
+}
+@keyframes book-5{
+    0%{
+        transform: translateX(0px);
+    }20%{
+        transform: translateX(-30px);
+    }100%{
+        transform: translateX(-30px);
+    }
+    
+}
+@keyframes book-6{
+    0%{
+        transform: translateX(0px);
+    }20%{
+        transform: translateX(-48px);
+    }100%{
+        transform: translateX(-48px);
+    }
+    
+}
+@keyframes book-7{
+    0%{
+        transform:rotateZ(0deg); 
+    }20%{
+        transform:rotateZ(23deg) translateX(55px); 
+    }100%{
+        transform:rotateZ(23deg)  translateX(55px); 
+    }
+    
+}
