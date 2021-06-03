@@ -1,0 +1,84 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+div{
+    text-align: center;
+    margin-top: 50px;
+}
+#slide{
+        animation: slide 3s infinite linear;
+        transform-origin: center;
+        transform-box: initial;
+}
+@keyframes slide
+{
+    0%{
+        transform: translateX(-500px)rotateZ(0deg) ;
+        
+    }
+    40%{
+        transform: translateX(0px)  ;
+        transform: rotateZ(30deg);
+        
+    }
+    60%{
+        transform: translateX(0px)  ;
+        transform: rotateZ(30deg);
+        
+    }
+    
+        
+    100%{
+          transform: translateX(500px)rotateZ(60deg);
+        
+    }
+}
+
+#left{
+    animation:  left 3s infinite ease;
+}
+@keyframes left{
+    0%{
+        transform: translateX(0px);
+    }
+    50%{
+         transform: translateX(20px);
+    }
+    
+    100%{
+         transform: translateX(0px);
+    }
+}
+
+#rhombus , #square , #circle{
+ animation: rotates 3s infinite ease;
+ transform-origin: 300px 305px;
+        transform-box: initial;
+}
+@keyframes rotates{
+    0%{
+        transform: rotateZ(0deg);
+    }
+    
+    100%{
+        transform: rotateZ(360deg);
+    }
+}
+
+#Vector_13{
+    animation: vectorslides  3s infinite ease;
+}
+@keyframes vectorslides{
+0%{
+        transform: translateX(0px);
+    }
+    50%{
+         transform: translateX(-10px);
+    }
+    
+    100%{
+         transform: translateX(0px);
+    }
+}
