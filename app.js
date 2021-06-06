@@ -71,9 +71,8 @@ const sessionConfig = {
         maxAge: 1000 * 60 * 60 * 24 * 7,
     },
 };
-if(process.env.ENV==="production")
-{
-    sessionConfig.cookie.secure=true;
+if (process.env.ENV === 'production') {
+    sessionConfig.cookie.secure = true;
 }
 // allow cors, json, string and array parsing,session, flash and helmet
 app.use(cors());
@@ -102,7 +101,6 @@ const userRouter = require('./routes/user.route');
 app.use('/users', userRouter);
 
 //include routes from /books
-
 const bookRouter = require('./routes/book.route');
 app.use('/books', bookRouter);
 
