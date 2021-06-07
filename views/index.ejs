@@ -4,10 +4,13 @@
         <title>Welcome to Libraryly</title>
         <%- include('partials/header.ejs') %>
         <link rel="stylesheet" href="/css/style.css">
+        <link rel="stylesheet" href="/css/footer.css">
     </head>
     <body>
         <img class="logo" src="/img/logo_big.png">
         <div id="heading">Welcome to Libraryly.</div>
-        <div id="body-1"><a href="/users/login">Login</a> or <a href="/users/register">Register</a> </div>  
+        <div id="body-1"><a href="/users/login">Login</a> or <a href="/users/register">Register</a></div> 
+        <%- include('partials/footer.ejs') %> 
     </body>
+    
 </html>

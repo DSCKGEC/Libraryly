@@ -119,6 +119,6 @@ app.get('*', (req, res) => {
     res.render('not-found');
 });
 // start the libraryly server
-app.listen(port, () =>
+app.listen(5000, () =>
     console.log(`LIBRARYLY running at http://localhost:${port}`)
 );
