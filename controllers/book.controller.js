@@ -23,7 +23,7 @@ const addBook = async (req, res) => {
 };
 
 const renderBook = async (req, res) => {
-    var book_id = req.params.id;
+    var book_id = req.params.bookId;
     const book = await bookService.FindBook(book_id);
     if (!book) {
         // TODO: redirect to book not found page
@@ -35,7 +35,7 @@ const renderBook = async (req, res) => {
 };
 
 const renderEditBook = async (req, res) => {
-    var book_id = req.params.id;
+    var book_id = req.params.bookId;
     const book = await bookService.FindBook(book_id);
     if (!book) {
         // TODO: redirect to book not found page
@@ -47,7 +47,7 @@ const renderEditBook = async (req, res) => {
 };
 
 const editBook = async (req, res) => {
-    var book_id = req.params.id;
+    var book_id = req.params.bookId;
     try {
         const result = await bookService.UpdateBook(book_id, req.body);
         // TODO: redirect to edit book success
@@ -59,7 +59,7 @@ const editBook = async (req, res) => {
 };
 
 const deleteBook = async (req, res) => {
-    var book_id = req.params.id;
+    var book_id = req.params.bookId;
     try {
         await bookService.DeleteBook(book_id);
         // TODO: redirect to delete success
