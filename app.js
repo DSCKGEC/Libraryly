@@ -17,7 +17,7 @@ const methodOverride = require('method-override');
 require('dotenv').config();
 
 // access port from env
-const port = Number(process.env.PORT);
+const port = Number(process.env.PORT) || 5000;
 
 // db connection variables
 const uri = String(process.env.MONGO_URI);
