@@ -4,18 +4,21 @@
 
 An online library management solution
 
-<details><summary>Frontend Theming Conventions</summary>
+<details><summary>Front-end Theming Conventions</summary>
 
 ## Theme
+
     Neumorphism
 
 ## Website theme color hexcodes
-   main(background) - #f2f3f7      
-   standard- #ff8303 
+
+   main(background) - #f2f3f7
+   standard- #ff8303
 
 ## Acessibilities
+
 - Neumorphic box shadows
-         
+
     ```
     box-shadow: 
     /* logo shadow */
@@ -29,47 +32,49 @@ An online library management solution
     ```
 
 - Neumorphic box-shadow(elevated)  
+
      ```
     box-shadow: 13px 13px 20px #cbced1,
               -13px -13px 20px #ffffff;
     ```
 
-- Neumorphic box-shadow(dropped)   
+- Neumorphic box-shadow(dropped)
+
     ```
     box-shadow: inset 8px 8px 8px #cbced1,
               inset -8px -8px 8px #ffffff;
     ```
 
-- Standard border radius    
+- Standard border radius
     border-radius: 25px;
 
 - padding:  30px (minimum)  
-    
+
 - Margin ->   mininum- 16px.
 
 </details>
 
 ## Contents
 
--   [Libraryly](#libraryly)
-    -   [Contents](#contents)
-    -   [Description](#description)
-        -   [What's the problem we are trying to solve?](#whats-the-problem-we-are-trying-to-solve)
-        -   [How can Libraryly help?](#how-can-libraryly-help)
-        -   [The idea](#the-idea)
-    -   [Project structure](#project-structure)
-    -   [Project roadmap](#project-roadmap)
-    -   [Getting started](#getting-started)
-        -   [Prerequisites](#prerequisites)
-            -   [Softwares needed](#softwares-needed)
-            -   [Knowledge needed](#knowledge-needed)
-        -   [Installing](#installing)
-    -   [Live demo](#live-demo)
-    -   [Built with](#built-with)
-    -   [Contributing](#contributing)
-    -   [Authors](#authors)
-    -   [License](#license)
-    -   [Acknowledgments](#acknowledgments)
+- [Libraryly](#libraryly)
+  - [Contents](#contents)
+  - [Description](#description)
+    - [What's the problem we are trying to solve?](#whats-the-problem-we-are-trying-to-solve)
+    - [How can Libraryly help?](#how-can-libraryly-help)
+    - [The idea](#the-idea)
+  - [Project structure](#project-structure)
+  - [Project roadmap](#project-roadmap)
+  - [Getting started](#getting-started)
+    - [Prerequisites](#prerequisites)
+      - [Softwares needed](#softwares-needed)
+      - [Knowledge needed](#knowledge-needed)
+    - [Installing](#installing)
+  - [Live demo](#live-demo)
+  - [Built with](#built-with)
+  - [Contributing](#contributing)
+  - [Authors](#authors)
+  - [License](#license)
+  - [Acknowledgments](#acknowledgments)
 
 ## Description
 
@@ -88,9 +93,9 @@ Our project presents an e-platform to libraries of all sizes, which help maintai
 Users: <br />
 We have three kinds of users in our system
 
--   Librarian: Responsible for adding and maintaining the catalogue of books and issues as well as members of the library.
--   Member: Members can browse the catalogue of books, request for issuing or adding more books.
--   Admin: The admin has control over the entire system and has CRUD permissions for librarians, members and books.
+- Librarian: Responsible for adding and maintaining the catalogue of books and issues as well as members of the library.
+- Member: Members can browse the catalogue of books, request for issuing or adding more books.
+- Admin: The admin has control over the entire system and has CRUD permissions for librarians, members and books.
 
 Registration: <br />
 Librarians and regular members can register an account on the platform but can only start using after profile approval by the admins (for librarians) and admin / librarian (for users).
@@ -128,60 +133,60 @@ The current project structure is as follows:
 
 The project currently does the following things.
 
--   Register / Login users
--   Create, Read, Update, Delete operations for books
--   Issue, Renew, Return operations for books
--   Create and Read operations for categories
+- Register / Login users
+- Create, Read, Update, Delete operations for books
+- Issue, Renew, Return operations for books
+- Create and Read operations for categories
 
 See below for our proposed future steps.
 
 <details><summary>Click to expand</summary>
-	
+ 
 - [x] Sign-up/Login Page for users/librarians (Frontend validation included)
 
     Sign-Up User/Librarian page details-
 
     Fields
 
-    -   Name
-    -   Email - (validated via regex)
-    -   Password - (min length 6)
-    -   Picture - ( Store in Cloudinary)
-    -   Phone - (validated as 10 digit or not, via regex)
-    -   Address - (google map api, if it’s free)
-    -   Username- Validated via ajax (username taken or not)
-    -   Option - user/librarian
+  - Name
+  - Email - (validated via regex)
+  - Password - (min length 6)
+  - Picture - ( Store in Cloudinary)
+  - Phone - (validated as 10 digit or not, via regex)
+  - Address - (google map api, if it’s free)
+  - Username- Validated via ajax (username taken or not)
+  - Option - user/librarian
 
     Admin-side controls
 
-    -   Status
-    -   Groups
+  - Status
+  - Groups
 
     Login Page - User / Librarian / Admin
     (Based on the role it will automatically redirect to respective dashboards)
 
-    -   Username
-    -   Password
-    -   Groups
+  - Username
+  - Password
+  - Groups
 
 - [ ] Dashboard for Admins
 
     All-in-one management.
 
-    -   User - Approve/Ban/Disapprove
-    -   Librarian - Approve/Ban/Disapprove
-    -   Manage all book requests
+  - User - Approve/Ban/Disapprove
+  - Librarian - Approve/Ban/Disapprove
+  - Manage all book requests
 
 - [ ] Dashboard for Users - Add book/Request book
-    -   Contain all books taken and display the fine(if any)
-    -   All books added by the User
-    
+  - Contain all books taken and display the fine(if any)
+  - All books added by the User
+
 - [ ] Dashboard Page for librarian
-    -   check user request/add book
-    -   New Requests-approve/disapprove/ask for more or less time
-    -   Verify Book Details
-    -   A separate tab if book not returned
-    -   All books added by the librarian
+  - check user request/add book
+  - New Requests-approve/disapprove/ask for more or less time
+  - Verify Book Details
+  - A separate tab if book not returned
+  - All books added by the librarian
 
 - [ ] Add-Book Page- (for librarian/user)
 
@@ -189,42 +194,42 @@ See below for our proposed future steps.
 
     Fields
 
-    -   Category
-    -   Title
-    -   ISBN
-    -   Price
-    -   Pages
-    -   Description
-    -   Author
-    -   Publisher
-    -   Inventory
+  - Category
+  - Title
+  - ISBN
+  - Price
+  - Pages
+  - Description
+  - Author
+  - Publisher
+  - Inventory
 
     Admin/Librarian Side Controls:-
 
-    -   Status- Check Book details and add to the library.
+  - Status- Check Book details and add to the library.
 
 - [ ] Request-Book Page
 
     For Users
-    - can request books for a fixed time period
+  - can request books for a fixed time period
 
     Fields:
 
-    -   ISBN
-    -   \_id
-    -   Time start
-    -   Time end
+  - ISBN
+  - \_id
+  - Time start
+  - Time end
 
         Admin/Libarian side controls:-
-    -   Returned-yes/no
+  - Returned-yes/no
 
     For Librarians-
-    -   Can grant book request/deny them or change the time-period
+  - Can grant book request/deny them or change the time-period
 
 - [ ] A notification tab in User/Librarian dashboard
-    -   Will notify when a user request a book/gets approved
-    -   When their add book request gets approved
-    -   If book not returned, Notify from time to time.
+  - Will notify when a user request a book/gets approved
+  - When their add book request gets approved
+  - If book not returned, Notify from time to time.
 
 </details>
 
@@ -236,41 +241,41 @@ Everyone is welcomed to contribute to our project. Mentioning in bold, **you do 
 
 #### Softwares needed
 
--   A web browser
--   Node and npm
+- A web browser
+- Node and npm
 
 #### Knowledge needed
 
 The best way to learn the following is to google each and everything!
 
--   Very basic understanding of git and github:
+- Very basic understanding of git and github:
 
-    -   What are repositories (local - remote - upstream), issues, pull requests
-    -   How to clone a repository, how to fork a repository, how to set upstreams
-    -   Adding, committing, pulling, pushing changes to remote repositories
+  - What are repositories (local - remote - upstream), issues, pull requests
+  - How to clone a repository, how to fork a repository, how to set upstreams
+  - Adding, committing, pulling, pushing changes to remote repositories
 
--   For backend:
+- For backend:
 
-    -   [Reading this blog on overview of HTTP](https://developer.mozilla.org/en-US/docs/Web/HTTP/Overview)
-    -   [Reading this blog on APIs](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Client-side_web_APIs/Introduction)
-    -   [Reading this blog on npm](https://www.freecodecamp.org/news/what-is-npm-a-node-package-manager-tutorial-for-beginners/)
-    -   Creating a free MongoDB cluster and fetching the connection URI. (you may read my gist on how to - [here](https://gist.github.com/singhayushh/426f10353a8051593828e92c139ebdbc))
+  - [Reading this blog on overview of HTTP](https://developer.mozilla.org/en-US/docs/Web/HTTP/Overview)
+  - [Reading this blog on APIs](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Client-side_web_APIs/Introduction)
+  - [Reading this blog on npm](https://www.freecodecamp.org/news/what-is-npm-a-node-package-manager-tutorial-for-beginners/)
+  - Creating a free MongoDB cluster and fetching the connection URI. (you may read my gist on how to - [here](https://gist.github.com/singhayushh/426f10353a8051593828e92c139ebdbc))
 
--   For frontend:
-    -   Understanding the differences between HTML and EJS.
-    -   Using variables, if else, loops in EJS.
-    -   CSS !
+- For frontend:
+  - Understanding the differences between HTML and EJS.
+  - Using variables, if else, loops in EJS.
+  - CSS !
 
 ### Installing
 
 A step by step series of instructions that tell you how to get the project running locally is given below. Google every issue you face following the below instructions or just ask us in our Discord / WhatsApp group.
 
--   Fork and clone the repository followed by opening the project in your text editor (with a terminal)
--   create a `.env` file, copy the contents from `.env.example` file to `.env`. Replace the values of `PORT`, `MONGO_URI` and `JWT_SECRET` with your own values. You can use our development database as well. `MONGO_URI=mongodb+srv://luna:lovegood@libraryly.a1lod.mongodb.net/LibrarylyDB?retryWrites=true&w=majority`
--   In the terminal, make sure you are in the project directory.
--   run the command `npm install` or `npm i` - (you should learn when and why to use this command!)
--   run the command `npm start` - you will then receive a message mentioning of an address where the project is live
--   open the browser and browse to the above address!
+- Fork and clone the repository followed by opening the project in your text editor (with a terminal)
+- create a `.env` file, copy the contents from `.env.example` file to `.env`. Replace the values of `PORT`, `MONGO_URI` and `JWT_SECRET` with your own values. You can use our development database as well. `MONGO_URI=mongodb+srv://luna:lovegood@libraryly.a1lod.mongodb.net/LibrarylyDB?retryWrites=true&w=majority`
+- In the terminal, make sure you are in the project directory.
+- run the command `npm install` or `npm i` - (you should learn when and why to use this command!)
+- run the command `npm start` - you will then receive a message mentioning of an address where the project is live
+- open the browser and browse to the above address!
 
 ## Live demo
 
@@ -280,14 +285,14 @@ A step by step series of instructions that tell you how to get the project runni
 
 **Backend:**
 
--   [Express](https://expressjs.com/) - a NodeJS framework
--   [Mongo DB](https://www.mongodb.com/) and the [Mongoose](https://mongoosejs.com/) DOM
+- [Express](https://expressjs.com/) - a NodeJS framework
+- [Mongo DB](https://www.mongodb.com/) and the [Mongoose](https://mongoosejs.com/) DOM
 
 **Frontend:**
 
--   [EJS](https://ejs.co/) which just HTML with more powers
--   CSS
--   Jquery
+- [EJS](https://ejs.co/) which just HTML with more powers
+- CSS
+- Jquery
 
 ## Contributing
 
@@ -305,4 +310,4 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## Acknowledgments
 
--   [contributors-img](https://contrib.rocks)
+- [contributors-img](https://contrib.rocks)
