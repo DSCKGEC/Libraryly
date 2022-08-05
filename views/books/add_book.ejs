@@ -1,34 +1,86 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <title>Add Book</title>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Add Book</title>
         <%- include('../partials/header') %>
         <link rel="stylesheet" href="/css/books/add_book.css">
         <script src="/js/books/add_book.js"></script>
     </head>
     <body>
-        <%- include('../partials/alerts') %>        
-        Add Book<br>
-        <form action="/books/add" method="POST">
-            <label>Title</label>
-            <input type="text" name="title"><br>
-            <label>category_id</label>
-            <input type="text" name="category"><br>
-            <label>Inventory</label>
-            <input type="number" name="inventory"><br>
-            <label>Publisher</label>
-            <input type="text" name="publisher"><br>
-            <label>Author</label>
-            <input type="text" name="author"><br>
-            <label>Description</label>
-            <textarea name="description"></textarea><br>
-            <label>Pages</label>
-            <input type="text" name="pages"><br>
-            <label>Price</label>
-            <input type="text" name="price"><br>
-            <label>ISBN</label>
-            <input type="text" name="ISBN"><br>
-            <button type="submit">Submit</button>
-        </form>
-    </body>
+        <%- include('../partials/alerts') %>
+    <section class="Form-section">
+        <div class="heading">
+          Add Book Form
+        </div>
+        <form class="Book-form" action="/books/add" method="POST">
+          <div class="Row1 rows">
+            <label class="label-form">Category ID:</label>
+            <input
+              class="input-form"
+              type="text"
+              name="category_ID"
+              required
+            />
+            <label class="label-form">Title:</label>
+            <input class="input-form" type="text" name="title" required />
+            <label class="label-form">ISBN :</label>
+            <input class="input-form" type="text" name="ISBN" required />
+          </div>
+          <div class="Row2 rows">
+            <label class="label-form">Price :</label>
+            <input
+              class="input-form"
+              type="number"
+              name="price"
+              required
+            />
+            <label class="label-form">Pages :</label>
+
+            <input
+              class="input-form"
+              type="number"
+              name="pages"
+              required
+            />
+          </div>
+          <div class="Row3 rows">
+          <label class="label-form">Description :</label>
+          <textarea
+            class="input-form-desc"
+            name="message"
+            id="message"
+            cols="20"
+            rows="5"
+            required
+          ></textarea
+          >
+        </div>
+        <div class="Row4 rows">
+          <label class="label-form">Author :</label>
+          <input class="input-form" type="text" name="author" required />
+          <label class="label-form">Publisher :</label>
+          <input
+            class="input-form"
+            type="text"
+            name="publisher"
+            required
+          />
+          <label class="label-form">Inventory :</label>
+          <input
+            class="input-form"
+            type="number"
+            name="inventory"
+            required
+          /><br />
+        </div>
+        <div class="submit-button">
+          <input type="submit" class="submit" value="Submit" />
+        </div>
+      </form>
+      </div>
+    </section>
+  </body>
 </html>
