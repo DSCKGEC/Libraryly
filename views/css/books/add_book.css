@@ -3,13 +3,19 @@
     margin: 0;
     font-family: Arial, Helvetica, sans-serif;
 }
+:root{
+    --main-bg:#fff;
+    --ff-main:'Quicksand', sans-serif;
+    --border: 1px solid #ccc;
+    --clr-sec: #f2f3f7;
+}
 body{
-    background-color: #f2f3f7;
+    background-color:var(--clr-sec);
 }
 .Book-form{
     margin: 0 auto 2rem;
     max-width: 350px;
-    background: #fff;
+    background:var(--main-bg);
     padding: 4%;
     border-radius: 12px;
 
@@ -19,7 +25,7 @@ body{
     padding: 2rem 0;
     font-size: 50px;
     font-weight: 700;
-    font-family: 'Quicksand', sans-serif;
+    font-family: var(--ff-main);
 }
 .rows{
     display: grid;
@@ -31,11 +37,9 @@ body{
 
 .input-form{
     height: 40px;
-    border: 1px solid #ccc;
+    border: var(--border);
     border-radius: 6px;
-    /* border: none; */
-    outline: #885523;
-    background-color: #f2f3f7;
+    background-color: var(--clr-sec);
     padding-left: 1rem;
     font-size: 15px;
 
@@ -45,8 +49,8 @@ body{
 .input-form-desc{
     height:auto;
     border-radius: 6px;
-    border: 1px solid #ccc;
-    background-color: #f2f3f7;
+    border: var(--border);
+    background-color: var(--clr-sec);
 
 
 
@@ -58,10 +62,9 @@ body{
     font-size: 15px;
     cursor: pointer;
     font-family: 'Quicksand', sans-serif;
-    color: #fff;
+    color:var(--main-bg);
     background: #3aafa9;
-    border: #885523;
-    border: 1px solid #ccc;
+    border: var(--border);
 
 }
 .submit-button{
