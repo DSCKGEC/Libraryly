@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Navbars</title>
+        <link rel="stylesheet" href="/views/css/dashboards/navbars.css" />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;1,300;1,400&display=swap"
+            rel="stylesheet"
+        />
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css"
+            integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A=="
+            crossorigin="anonymous"
+            referrerpolicy="no-referrer"
+        />
+        <script src="/views/js/dashboards/navbars.js"></script>
+    </head>
+    <body>
+        <main>
+            <section class="Navbars-section section">
+                <div class="Navbars-container container">
+                    <!-- Top Navbar -->
+                    <div class="top-nav row-1">
+                        <input type="checkbox" id="hamburger" />
+                        <label
+                            for="hamburger"
+                            class="fa-solid fa-bars burger"
+                        ></label>
+                        <div class="logo"></div>
+                        <div class="icons">
+                            <div class="help">
+                                <i
+                                    class="fa-solid fa-circle-question fa-lg icon"
+                                ></i>
+                            </div>
+
+                            <div class="notification">
+                                <i class="fa-solid fa-bell fa-lg icon"></i>
+                            </div>
+                        </div>
+                        <div class="user">
+                            <i class="fa-regular fa-circle-user fa-lg icon"></i>
+                            <select class="user-select">
+                                <option value="user-name">Charlie</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row-2">
+                        <!-- Side Navbar -->
+                        <div
+                            class="sidenav sidenav-resp sidenav-h-resp"
+                            id="sidenav"
+                        >
+                            <div class="pages">
+                                <div class="dashboard page-content">
+                                    <i class="fa-solid fa-house"></i>
+                                    Dashboard
+                                </div>
+                                <div class="devices page-content">
+                                    <i class="fa-solid fa-book"></i>
+                                    Your Books
+                                </div>
+                                <div class="orders page-content">
+                                    <i class="fa-solid fa-clipboard"></i>
+                                    Orders
+                                </div>
+                            </div>
+                            <hr />
+                            <div class="features">
+                                <div class="interface feature-content">
+                                    <i class="fa-solid fa-bookmark"></i>
+                                    Issue Books
+                                </div>
+                                <div class="policy feature-content">
+                                    <i class="fa-solid fa-receipt"></i>
+                                    Return Books
+                                </div>
+                                <div class="report feature-content">
+                                    <i class="fa-solid fa-image-portrait"></i>
+                                    Authors
+                                </div>
+                            </div>
+                        </div>
+                        <div class="empty_area area-resp"></div>
+                    </div>
+                </div>
+            </section>
+        </main>
+        
+    </body>
+</html>
